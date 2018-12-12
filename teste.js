@@ -5,7 +5,7 @@ var args = {"tns:login": 'botz', "tns:senha": '102030mmr@', "tns:codigoEntidade"
 
 soap.createClientAsync(url).then((soapClient) => {
     console.log("ola", soapClient)
-    soapClient.buscarCartoesDisponiveis(args, function(err,result){
+    soapClient.SaqueComplementarWebServiceService.SaqueComplementar.buscarCartoesDisponiveis(args, function(err,result){
         if (err) throw err;
             console.log(result);
     })
