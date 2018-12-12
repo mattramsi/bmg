@@ -1,5 +1,6 @@
 var soap = require('soap');
-var o2x = require('object-to-xml');
+var DOMParser = require('xmldom').DOMParser;
+
 var url = 'https://ws1.bmgconsig.com.br/webservices/SaqueComplementar?wsdl';
 var text = '<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservice.econsig.bmg.com">\n\
    <soapenv:Header/>\n\
@@ -16,8 +17,8 @@ var text = '<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instan
 </soapenv:Envelope>';
 
 
-parser = new DOMParser();
-args = parser.parseFromString(text,"text/xml");
+var parser = new DOMParser();
+var args = parser.parseFromString(text,"text/xml");
 
 console.log(args)
 
