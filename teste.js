@@ -17,7 +17,7 @@ var text = '<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instan
 </soapenv:Envelope>';
 
 
-var args = DOMParser.parseFromString(text,"text/xml");
+var args = DOMParser().parseFromString(text,"text/xml");
 
 console.log(args)
 
