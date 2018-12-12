@@ -17,7 +17,7 @@ var args = '<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instan
 
 console.log(args)
 soap.createClientAsync(url).then((soapClient) => {
-    soapClient.SaqueComplementarWebServiceService.SaqueComplementar.buscarCartoesDisponiveis(args, function(err,result){
+    soapClient.SaqueComplementarWebServiceService.SaqueComplementar.buscarCartoesDisponiveis(o2x(args), function(err,result){
         if (err) {
             console.log(err)
             throw err;
