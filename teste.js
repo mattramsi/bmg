@@ -6,7 +6,7 @@ soap.createClientAsync(url).then((soapClient) => {
     console.log("ola", args)
     soapClient.buscarCartoesDisponiveis(args, function(err,result,raw){
 
-        // console.log(result)
+        console.log(result)
         // if(err) { console.log(err); }
         // else { console.log('Result: \n' + JSON.stringify(result)); }
     })
