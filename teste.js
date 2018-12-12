@@ -1,7 +1,7 @@
 var soap = require('soap');
 var o2x = require('object-to-xml');
 var url = 'https://ws1.bmgconsig.com.br/webservices/SaqueComplementar?wsdl';
-var args = {"tns:login": 'botz', "tns:senha": '102030mmr@', "tns:codigoEntidade": 1581, "tns:Cpf": '10797116869'};
+var args = {"login": 'botz', "senha": '102030mmr@', "codigoEntidade": 1581, "Cpf": '10797116869'};
 
 
 soap.createClientAsync(url).then((soapClient) => {
