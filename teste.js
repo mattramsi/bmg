@@ -4,9 +4,9 @@ var args = {"tns:login": 'botz', "tns:senha": '102030mmr@', "tns:codigoEntidade"
 
 
 soap.createClientAsync(url).then((soapClient) => {
-    console.log("ola", args)
+    console.log("ola", soapClient)
     soapClient.buscarCartoesDisponiveis(args, function(err,result){
-        if(err) { console.log(err); }
-        else { console.log('Result: \n' + JSON.stringify(result)); }
+        if (err) throw err;
+            console.log(result);
     })
 })
