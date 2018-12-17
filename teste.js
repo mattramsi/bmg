@@ -16,7 +16,7 @@ var xml = '<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instanc
             '<senha xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">102030mmr@</senha>'+
             '<codigoEntidade xsi:type="xsd:int">1581</codigoEntidade>'+
             '<cpf xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">10797116869</cpf>'+
-            '<matricula xsi:type="xsd:int">1412204922</matricula>'+
+            '<matricula  xsi:type="soapenc:string">1412204922</matricula>'+
             '<numeroContaInterna xsi:type="xsd:int">7592326</numeroContaInterna>'+
             '<tipoSaque xsi:type="xsd:int">1</tipoSaque>'+
          '</param>'+
