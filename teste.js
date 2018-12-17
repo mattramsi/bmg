@@ -4,7 +4,7 @@ var xml = '<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instanc
             '<login xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">botz</login>'+
             '<senha xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">102030mmr@</senha>'+
             '<codigoEntidade xsi:type="xsd:int">686</codigoEntidade>'+
-            '<cpf xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">15470630846</cpf>'+
+            '<cpf xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">1597988046</cpf>'+
          '</param>'+
       '</web:buscarCartoesDisponiveis>'+
    '</soapenv:Body>'+
