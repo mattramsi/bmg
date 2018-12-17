@@ -11,6 +11,7 @@ var xml = '<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instanc
 '</soapenv:Envelope>';
 
 const request = require('request')
+var parseString = require('xml2js').parseString;
 
 const opts = {
     body: xml,
@@ -21,5 +22,7 @@ const opts = {
 }
 
 const body = request.post(url, opts, (err, response) => {
-    console.log('response', response.body)
+    parseString(response.body, function (err, result) {
+        console.dir(result);
+    });
 })
