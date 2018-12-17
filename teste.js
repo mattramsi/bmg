@@ -22,7 +22,8 @@ const opts = {
 }
 
 const body = request.post(url, opts, (err, response) => {
-    // console.log('response', response.body)
-    parser.toJson(response.body);
+   
+    var json = parser.toJson(response.body);
+     console.log('response', json);
 })
 
