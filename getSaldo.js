@@ -29,10 +29,9 @@ const opts = {
 const body = request.post(url, opts, (err, response) => {
    
     var json = JSON.parse(parser.toJson(response.body));
-    console.log('response', json)
-
+    
     var multiRef = json['soapenv:Envelope']['soapenv:Body'].multiRef
-    if(multiRef) console.log('response', multiRef)
+    // if(multiRef) console.log('response', multiRef)
 
     var arraySaldos = [];
     for(var i = 0; i < multiRef.length - 1; i++) {        
