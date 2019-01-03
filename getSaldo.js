@@ -24,7 +24,7 @@ module.exports = {
        return new Promise((resolve, reject) => {
             //GET SALDO
            
-            const body = request.post(url, opts, (response) => {
+           request.post(url, opts, (err, response) => {
                 
                 var json = JSON.parse(parser.toJson(response.body));
 
