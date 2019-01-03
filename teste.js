@@ -38,7 +38,7 @@ const opts = {
 // //GET MATRICULA
 const body = request.post(url, opts, (err, response) => {
    
-    var json = JSON.parse(parser.toJson(response.body));
+    var json = parser.toJson(response.body);
     console.log('response', json)
     // console.log('response', jsonParser(json)['soapenv:Envelope']['soapenv:Body'].multiRef)
 
