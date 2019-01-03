@@ -17,13 +17,7 @@ module.exports = {
         '</soapenv:Body>'+
         '</soapenv:Envelope>';
 
-        const options = {
-            body: xml,
-            headers: {
-                'Content-Type': 'text/xml; charset=utf-8',
-                SOAPAction: 'runTransaction'
-            }
-        }
+        const opts = { body: xml, headers: { 'Content-Type': 'text/xml; charset=utf-8', SOAPAction: 'runTransaction' }}
 
         new Promise(function(resolve, reject) {
             //GET SALDO
