@@ -23,7 +23,6 @@ module.exports = {
 
        return new Promise((resolve, reject) => {
             //GET SALDO
-           
            request.post(url, opts, (err, response) => {
                 
                 var json = JSON.parse(parser.toJson(response.body));
@@ -42,7 +41,6 @@ module.exports = {
                         }
                     }
 
-                    console.log("array", array)
                     resolve(array);
                 } else {
                     reject("Sem saldo")

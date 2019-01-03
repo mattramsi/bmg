@@ -44,9 +44,8 @@ const body = request.post(url, opts, (err, response) => {
             obj.contaInterna = multiRef[i].numeroContaInterna.$t
             saldo.get(cpf, codigoEntidade, obj.matricula, obj.contaInterna).then( (response) => {
                 obj.saldo = response
-            })
-            
-            array.push(obj);
+                array.push(obj);
+            })   
         }
     }
 
