@@ -1,6 +1,7 @@
 var url = 'https://ws1.bmgconsig.com.br/webservices/SaqueComplementar?wsdl';
 
-module.exports = function get(matricula, contaInterna) {
+module.exports = {
+  get: function(matricula, contaInterna) {
 
     var xml = '<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservice.econsig.bmg.com"><soapenv:Header/><soapenv:Body><web:buscarLimiteSaque soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">'+
         '<param xsi:type="web:DadosCartaoParameter">'+
@@ -50,7 +51,7 @@ module.exports = function get(matricula, contaInterna) {
                 reject(json)
             }
         })
-    });
+    }); 
 }  
 
 
