@@ -38,7 +38,7 @@ const opts = {
 const body = request.post(url, opts, (err, response) => {
    
     var json = parser.toJson(response.body);
-     console.log('response', JSON.parse('soapenv:Envelope'))
+     console.log('response', json.parse('soapenv:Envelope'))
  
 })
 
