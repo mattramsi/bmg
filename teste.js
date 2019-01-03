@@ -38,14 +38,14 @@ const opts = {
 const body = request.post(url, opts, (err, response) => {
    
     var json = JSON.parse(parser.toJson(response.body));
-     console.log('response', jsonParser(json, 'soapenv:Body'))
+     console.log('response', jsonParser(json)['soapenv:Envelope']['soapenv:Body'])
  
 })
 
-function jsonParser(json, key) {
+function jsonParser(json) {
 
     var string = JSON.stringify(json);
     var objectValue = JSON.parse(string);
-    return objectValue[key];
+    return objectValue;
  }
 
