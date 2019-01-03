@@ -75,7 +75,7 @@ function getSaldo(matricula, contaInterna) {
 
             var multiRef = json['soapenv:Envelope']['soapenv:Body'].multiRef
             if(multiRef) {
-                console.log("entoru", matricula, contaInterna)
+                console.log("Body", multiRef)
                 for(var i = 0; i < multiRef.length - 1; i++) {        
                     if(multiRef[i].valorSaqueMaximo && multiRef[i].valorSaqueMinimo) {
                         var obj = {};
