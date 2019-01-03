@@ -39,6 +39,8 @@ const body = request.post(url, opts, (err, response) => {
             var obj = {};
             obj.matricula = multiRef[i].matricula.$t;
             obj.contaInterna = multiRef[i].numeroContaInterna.$t
+            obj.saldo = [];
+            console.log(getSaldo(obj.matricula, obj.contaInterna))
             obj.saldo = getSaldo(obj.matricula, obj.contaInterna)
     
             array.push(obj);
