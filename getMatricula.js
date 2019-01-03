@@ -41,7 +41,7 @@ const body = request.post(url, opts, (err, response) => {
             var obj = {};
             obj.matricula = multiRef[i].matricula.$t;
             obj.contaInterna = multiRef[i].numeroContaInterna.$t
-            obj.saldo = saldo.get(obj.matricula, obj.contaInterna)
+            obj.saldo = saldo.get(cpf, codigoEntidade, obj.matricula, obj.contaInterna)
     
             array.push(obj);
         }
