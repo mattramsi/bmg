@@ -17,8 +17,8 @@ var xml = '<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instanc
             '<codigoEntidade xsi:type="xsd:int">1581</codigoEntidade>'+
             '<cpf xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">17901669500</cpf>'+
             '<matricula xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">1508645423</matricula>'+
-            '<tipoSaque>1</tipoSaque>'+
-            '<numeroContaInterna>5455945</numeroContaInterna>'+
+            '<numeroContaInterna xsi:type="xsd:long">5455945</numeroContaInterna>'+
+            '<tipoSaque xsi:type="xsd:int">1</tipoSaque>'+
         '</param>'+
       '</web:buscarLimiteSaque>'+
    '</soapenv:Body>'+
