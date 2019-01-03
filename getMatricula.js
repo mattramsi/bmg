@@ -28,7 +28,7 @@ const opts = {
 }
 
 // //GET MATRICULA
-const body = request.post(url, opts, (err, response) => {
+request.post(url, opts, (err, response) => {
    
     var json = JSON.parse(parser.toJson(response.body));
 
@@ -40,9 +40,12 @@ const body = request.post(url, opts, (err, response) => {
         
         if(multiRef[i].matricula && multiRef[i].numeroContaInterna) {
             var obj = {};
-            obj.matricula = multiRef[i].matricula.$t;
-            obj.contaInterna = multiRef[i].numeroContaInterna.$t
-            saldo.get(cpf, codigoEntidade, obj.matricula, obj.contaInterna).then( (response) => {
+            var matricula = multiRef[i].matricula.$t;
+            var contaInterna = multiRef[i].numeroContaInterna.$t
+
+            saldo.get(cpf, codigoEntidade, matricula, contaInterna).then( (response) => {
+                obj.matricula = multiRef[i].matricula.$t;
+                obj.contaInterna = multiRef[i].numeroContaInterna.$t
                 obj.saldo = response
                 array.push(obj);
             })   
