@@ -30,6 +30,16 @@ const body = request.post(url, opts, (err, response) => {
     var multiRef = json['soapenv:Envelope']['soapenv:Body'].multiRef
     console.log('response', multiRef)
 
-    
+    var arrayMatriculas = [];
+    for(var i = 0; i < multiRef.length - 1; i++) {        
+        if(multiRef[i].matricula && multiRef[i].numeroContaInterna) {
+            var obj = {};
+            obj.matricula = multiRef[i].matricula;
+            obj.contaInterna = multiRef[i].numeroContaInterna
+            arrayMatriculas.push(obj);
+        }
+    }
+
+    console.log(arrayMatriculas)
 })
 
