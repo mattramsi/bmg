@@ -21,33 +21,32 @@ module.exports = {
 
         const opts = { body: xml, headers: { 'Content-Type': 'text/xml; charset=utf-8', SOAPAction: 'runTransaction' }}
 
+       return new Promise((resolve, reject) => {
             //GET SALDO
-            request.post(url, opts, (err, response) => {
+            request.post(url, opts, (response) => {
+            
+                var json = JSON.parse(parser.toJson(response.body));
 
-                new Promise(function(resolve, reject) {
-                
-                    var json = JSON.parse(parser.toJson(response.body));
+                var multiRef = json['soapenv:Envelope']['soapenv:Body'].multiRef
 
-                    var multiRef = json['soapenv:Envelope']['soapenv:Body'].multiRef
-
-                    var array = [];
-                    if(multiRef) {
-                        console.log("Body", multiRef)
-                        for(var i = 0; i < multiRef.length - 1; i++) {        
-                            if(multiRef[i].valorSaqueMaximo && multiRef[i].valorSaqueMinimo) {
-                                var obj = {};
-                                obj.valorSaqueMinimo = multiRef[i].valorSaqueMinimo.href;
-                                obj.valorSaqueMaximo = multiRef[i].valorSaqueMaximo.href;
-                                array.push(obj);
-                            }
+                var array = [];
+                if(multiRef) {
+                    console.log("Body", multiRef)
+                    for(var i = 0; i < multiRef.length - 1; i++) {        
+                        if(multiRef[i].valorSaqueMaximo && multiRef[i].valorSaqueMinimo) {
+                            var obj = {};
+                            obj.valorSaqueMinimo = multiRef[i].valorSaqueMinimo.href;
+                            obj.valorSaqueMaximo = multiRef[i].valorSaqueMaximo.href;
+                            array.push(obj);
                         }
-
-                        console.log("arraySaldo", array)
-                        resolve(array);
-                    } else{
-                        reject(json)
                     }
-            });
+
+                    console.log("array", array)
+                    resolve(array);
+                } else {
+                    reject("Sem saldo")
+                }
+            })
         }); 
     }   
 }  
