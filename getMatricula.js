@@ -44,8 +44,8 @@ request.post(url, opts, (err, response) => {
             var contaInterna = multiRef[i].numeroContaInterna.$t
 
             saldo.get(cpf, codigoEntidade, matricula, contaInterna).then( (response) => {
-                obj.matricula = multiRef[i].matricula.$t;
-                obj.contaInterna = multiRef[i].numeroContaInterna.$t
+                obj.matricula = matricula;
+                obj.contaInterna = contaInterna
                 obj.saldo = response
                 array.push(obj);
             })   
