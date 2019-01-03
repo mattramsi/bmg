@@ -1,5 +1,6 @@
 var url = 'https://ws1.bmgconsig.com.br/webservices/SaqueComplementar?wsdl';
 const request = require('request')
+var parser = require('xml2json');
 
 module.exports = {
   get: function(cpf, codigoEntidade, matricula, contaInterna) {
