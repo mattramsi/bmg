@@ -1,5 +1,5 @@
 
-var saldo = require('getSaldo');
+var saldo = require('./getSaldo');
 
 var url = 'https://ws1.bmgconsig.com.br/webservices/SaqueComplementar?wsdl';
 var cpf = '44004265053';
