@@ -42,7 +42,7 @@ module.exports = {
                     }
 
                     console.log("arraySaldo", array)
-                    resolve(arraySaldos);
+                    resolve(array);
                 } else{
                     reject(json)
                 }
