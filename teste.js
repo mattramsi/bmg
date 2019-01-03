@@ -20,7 +20,7 @@ var xml = '<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instanc
             '<numeroContaInterna>7592326</numeroContaInterna>'+
             '<tipoSaque>1</tipoSaque>'+
          '</param>'+
-      '</web:buscarCartoesDisponiveis>'+
+      '</web:buscarLimiteSaque>'+
    '</soapenv:Body>'+
 '</soapenv:Envelope>';
 
