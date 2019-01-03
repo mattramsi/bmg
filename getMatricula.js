@@ -39,8 +39,6 @@ const body = request.post(url, opts, (err, response) => {
             var obj = {};
             obj.matricula = multiRef[i].matricula.$t;
             obj.contaInterna = multiRef[i].numeroContaInterna.$t
-            obj.saldo = [];
-            console.log(getSaldo(obj.matricula, obj.contaInterna))
             obj.saldo = getSaldo(obj.matricula, obj.contaInterna)
     
             array.push(obj);
@@ -52,6 +50,7 @@ const body = request.post(url, opts, (err, response) => {
 
 function getSaldo(matricula, contaInterna) {
 
+    
     var xml = '<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservice.econsig.bmg.com"><soapenv:Header/><soapenv:Body><web:buscarLimiteSaque soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">'+
         '<param xsi:type="web:DadosCartaoParameter">'+
                 '<login xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">botz</login>'+
@@ -76,7 +75,7 @@ function getSaldo(matricula, contaInterna) {
 
             var multiRef = json['soapenv:Envelope']['soapenv:Body'].multiRef
             if(multiRef) {
-
+                console.log("entoru")
                 for(var i = 0; i < multiRef.length - 1; i++) {        
                     if(multiRef[i].valorSaqueMaximo && multiRef[i].valorSaqueMinimo) {
                         var obj = {};
@@ -86,6 +85,7 @@ function getSaldo(matricula, contaInterna) {
                     }
                 }
 
+                console.log("saldo", arraySaldos)
                 resolve(arraySaldos);
             } else{
                 reject(json)
