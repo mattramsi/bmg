@@ -35,7 +35,7 @@ request.post(url, opts, (err, response) => {
     var multiRef = json['soapenv:Envelope']['soapenv:Body'].multiRef
     // if(multiRef) console.log('response', multiRef)
 
-    var array = this;
+    var array = [];
     for(var i = 0; i < multiRef.length - 1; i++) {  
         
         if(multiRef[i].matricula && multiRef[i].numeroContaInterna) {
@@ -43,10 +43,12 @@ request.post(url, opts, (err, response) => {
             var contaInterna = multiRef[i].numeroContaInterna.$t
 
             saldo.get(cpf, codigoEntidade, matricula, contaInterna).then( (response) => {
+                
                 var obj = {};
                 obj.matricula = matricula;
                 obj.contaInterna = contaInterna
                 obj.saldo = response
+                console.log(obj)
                 array.push(obj);
             })   
         }
