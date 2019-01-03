@@ -50,6 +50,7 @@ request.post(url, opts, (err, response) => {
                 obj.saldo = response
                 console.log(obj)
                 array.push(obj);
+                console.log(array)
             })   
         }
     }
