@@ -1,4 +1,5 @@
 var url = 'https://ws1.bmgconsig.com.br/webservices/SaqueComplementar?wsdl';
+const request = require('request')
 
 module.exports = {
   get: function(cpf, codigoEntidade, matricula, contaInterna) {
@@ -21,7 +22,7 @@ module.exports = {
 
         new Promise(function(resolve, reject) {
             //GET SALDO
-            const body = request.post(url, opts, (err, response) => {
+            request.post(url, opts, (err, response) => {
             
                 var json = JSON.parse(parser.toJson(response.body));
 
