@@ -29,18 +29,17 @@ module.exports = {
 
                 var multiRef = json['soapenv:Envelope']['soapenv:Body'].multiRef
 
-                var array = [];
                 if(multiRef) {
                     for(var i = 0; i < multiRef.length - 1; i++) {        
                         if(multiRef[i].valorSaqueMaximo && multiRef[i].valorSaqueMinimo) {
                             var obj = {};
                             obj.valorSaqueMinimo = multiRef[i].valorSaqueMinimo.href;
                             obj.valorSaqueMaximo = multiRef[i].valorSaqueMaximo.href;
-                            array.push(obj);
+                            resolve(obj);
                         }
                     }
 
-                    resolve(array);
+                  
                 } else {
                     reject("Sem saldo")
                 }
