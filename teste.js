@@ -46,6 +46,6 @@ function jsonParser(json, key) {
 
     var string = JSON.stringify(json);
     var objectValue = JSON.parse(string);
-    return objectValue['mm'];
+    return objectValue[key];
  }
 
