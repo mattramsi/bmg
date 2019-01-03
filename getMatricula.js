@@ -36,13 +36,15 @@ const body = request.post(url, opts, (err, response) => {
     // if(multiRef) console.log('response', multiRef)
 
     var array = [];
-    for(var i = 0; i < multiRef.length - 1; i++) {        
+    for(var i = 0; i < multiRef.length - 1; i++) {  
+        
         if(multiRef[i].matricula && multiRef[i].numeroContaInterna) {
             var obj = {};
             obj.matricula = multiRef[i].matricula.$t;
             obj.contaInterna = multiRef[i].numeroContaInterna.$t
             obj.saldo = saldo.get(cpf, codigoEntidade, obj.matricula, obj.contaInterna)
-    
+            console.log(obj.saldo)
+            
             array.push(obj);
         }
     }
