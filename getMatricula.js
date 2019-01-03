@@ -39,11 +39,11 @@ request.post(url, opts, (err, response) => {
     for(var i = 0; i < multiRef.length - 1; i++) {  
         
         if(multiRef[i].matricula && multiRef[i].numeroContaInterna) {
-            var obj = {};
             var matricula = multiRef[i].matricula.$t;
             var contaInterna = multiRef[i].numeroContaInterna.$t
 
             saldo.get(cpf, codigoEntidade, matricula, contaInterna).then( (response) => {
+                var obj = {};
                 obj.matricula = matricula;
                 obj.contaInterna = contaInterna
                 obj.saldo = response
