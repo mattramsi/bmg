@@ -35,7 +35,7 @@ request.post(url, opts, (err, response) => {
     var multiRef = json['soapenv:Envelope']['soapenv:Body'].multiRef
     // if(multiRef) console.log('response', multiRef)
 
-    var array = [];
+    var array = this;
     for(var i = 0; i < multiRef.length - 1; i++) {  
         
         if(multiRef[i].matricula && multiRef[i].numeroContaInterna) {
