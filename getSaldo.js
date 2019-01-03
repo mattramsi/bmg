@@ -21,10 +21,11 @@ module.exports = {
 
         const opts = { body: xml, headers: { 'Content-Type': 'text/xml; charset=utf-8', SOAPAction: 'runTransaction' }}
 
-       return new Promise((resolve, reject) => {
             //GET SALDO
-            request.post(url, opts, (response) => {
-            
+        request.post(url, opts, (response) => {
+        
+            return new Promise((resolve, reject) => {
+                
                 var json = JSON.parse(parser.toJson(response.body));
 
                 var multiRef = json['soapenv:Envelope']['soapenv:Body'].multiRef
