@@ -23,9 +23,9 @@ module.exports = {
 
        return new Promise((resolve, reject) => {
             //GET SALDO
+            console.log(url, opts)
             request.post(url, opts, (response) => {
                 
-                console.log(response)
                 var json = JSON.parse(parser.toJson(response.body));
 
                 var multiRef = json['soapenv:Envelope']['soapenv:Body'].multiRef
