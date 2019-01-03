@@ -3,7 +3,7 @@ var xml = '<soapenv:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:
          '<param>'+
             '<login>botz</login>'+
             '<senha>102030mmr@</senha>'+
-            '<codigoEntidade>4194-1</codigoEntidade>'+
+            '<codigoEntidade>41941</codigoEntidade>'+
             '<cpf>10131417843</cpf>'+
          '</param>'+
       '</web:buscarCartoesDisponiveis>'+
