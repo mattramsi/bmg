@@ -34,8 +34,8 @@ const body = request.post(url, opts, (err, response) => {
     for(var i = 0; i < multiRef.length - 1; i++) {        
         if(multiRef[i].matricula && multiRef[i].numeroContaInterna) {
             var obj = {};
-            obj.matricula = multiRef[i].matricula.St;
-            obj.contaInterna = multiRef[i].numeroContaInterna.St
+            obj.matricula = multiRef[i].matricula.$t;
+            obj.contaInterna = multiRef[i].numeroContaInterna.$t
             arrayMatriculas.push(obj);
         }
     }
