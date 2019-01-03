@@ -39,10 +39,9 @@ const opts = {
 const body = request.post(url, opts, (err, response) => {
    
     var json = parser.toJson(response.body);
-    console.log('response', json)
-    // console.log('response', jsonParser(json)['soapenv:Envelope']['soapenv:Body'].multiRef)
+    console.log('response', jsonParser(json)['soapenv:Envelope']['soapenv:Body'].multiRef)
 
-    // var multiRef = jsonParser(json)['soapenv:Envelope']['soapenv:Body'].multiRef
+    var multiRef = jsonParser(json)['soapenv:Envelope']['soapenv:Body']
  
 })
 
