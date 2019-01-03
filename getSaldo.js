@@ -33,6 +33,18 @@ const body = request.post(url, opts, (err, response) => {
 
     var multiRef = json['soapenv:Envelope']['soapenv:Body'].multiRef
     if(multiRef) console.log('response', multiRef)
+
+    var arraySaldos = [];
+    for(var i = 0; i < multiRef.length - 1; i++) {        
+        if(multiRef[i].valorSaqueMaximo && multiRef[i].valorSaqueMinimo) {
+            var obj = {};
+            obj.valorSaqueMinimo = multiRef[i].valorSaqueMinimo;
+            obj.valorSaqueMaximo = multiRef[i].valorSaqueMaximo;
+            arraySaldos.push(obj);
+        }
+    }
+
+    console.log(arraySaldos)
 })
 
 

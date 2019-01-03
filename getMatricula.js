@@ -28,7 +28,7 @@ const body = request.post(url, opts, (err, response) => {
     console.log('response', json)
 
     var multiRef = json['soapenv:Envelope']['soapenv:Body'].multiRef
-    console.log('response', multiRef)
+    if(multiRef) console.log('response', multiRef)
 
     var arrayMatriculas = [];
     for(var i = 0; i < multiRef.length - 1; i++) {        
