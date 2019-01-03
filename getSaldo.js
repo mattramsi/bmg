@@ -23,7 +23,7 @@ module.exports = {
 
        return new Promise((resolve, reject) => {
             //GET SALDO
-            console.log(url, opts)
+            console.log(url, cpf, codigoEntidade, matricula, contaInterna)
             request.post(url, opts, (response) => {
                 
                 var json = JSON.parse(parser.toJson(response.body));
