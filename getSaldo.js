@@ -37,7 +37,7 @@ module.exports = {
                             var obj = {};
                             obj.valorSaqueMinimo = multiRef[i].valorSaqueMinimo.href;
                             obj.valorSaqueMaximo = multiRef[i].valorSaqueMaximo.href;
-                            arraySaldos.push(obj);
+                            array.push(obj);
                         }
                     }
 
