@@ -13,7 +13,7 @@ function gerarRelatorio() {
        var codigoEntidade = xlData[i].codigoEntidade
 
        matricula.get(cpf, codigoEntidade).then((response) => {
-            console.log(response)
+            console.log("oi", response)
        })
     }
 
