@@ -26,7 +26,7 @@ var gerarRelatorio = function() {
         var csvData = response; 
 
         var array = [];
-        for(var i = 0; i < csvData.length; i++) {        
+        for(var i = 0; i < csvData.length - 1; i++) {        
             var cpf = csvData[i].cpf
             var codigoEntidade = csvData[i].codigoEntidade
 
@@ -34,8 +34,8 @@ var gerarRelatorio = function() {
             matricula.get(cpf, codigoEntidade).then((response) => {
                 array.push(response)
 
-                console.log(i, array)
-                if(i == (csvData.length - 1) ) console.log(array)
+                if(i == csvData.length)
+                 console.log(array)
             })
         }
 
