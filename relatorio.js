@@ -43,9 +43,11 @@ var gerarRelatorio = function() {
                     console.log(e); // "Ah, não!"
                 })
             }
+
+            console.log(JSON.stringify(array))
         })();
 
-        console.log(JSON.stringify(array))
+        
     })
 }
 
