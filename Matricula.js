@@ -23,13 +23,15 @@ module.exports = {
 
         const opts = { body: xml, headers: { 'Content-Type': 'text/xml; charset=utf-8', SOAPAction: 'runTransaction' }}
 
-        return new Promise((resolve, reject) => {
+        // return new Promise((resolve, reject) => {
             request.post(url, opts, (err, response) => {
             
                 var json = JSON.parse(parser.toJson(response.body));
                 var multiRef = json['soapenv:Envelope']['soapenv:Body'].multiRef
 
                 if(multiRef) {
+                    
+                    var obj = {};
                     for(var i = 0; i < multiRef.length - 1; i++) {  
                         
                         if(multiRef[i].matricula && multiRef[i].numeroContaInterna) {
@@ -38,20 +40,20 @@ module.exports = {
 
                             saldo.get(cpf, codigoEntidade, matricula, contaInterna).then( (response) => {
                                 
-                                var obj = {};
                                 obj.matricula = matricula;
                                 obj.contaInterna = contaInterna
                                 obj.saldo = response
-                               
-                                resolve(obj)
+                                
+                                return obj;
+                                // resolve(obj)
                             })   
                         }
                     }
-                } else{
-                    reject("Não foi possivel gerar o relatório");
+                // } else{
+                //     reject("Não foi possivel gerar o relatório");
                 }
                 
-            }); 
+            // }); 
         })
     }
 }

@@ -21,7 +21,7 @@ module.exports = {
 
         const opts = { body: xml, headers: { 'Content-Type': 'text/xml; charset=utf-8', SOAPAction: 'runTransaction' }}
 
-        return new Promise((resolve, reject) => {
+        // return new Promise((resolve, reject) => {
             //GET SALDO
            request.post(url, opts, (err, response) => {
                 
@@ -45,13 +45,14 @@ module.exports = {
                         
                     }
 
-                    resolve(obj);
+                    return obj;
+                    // resolve(obj);
                   
-                } else {
-                    reject("Sem saldo")
+                // } else {
+                //     reject("Sem saldo")
                 }
             })
-        }); 
+        // }); 
     }   
 }  
 
