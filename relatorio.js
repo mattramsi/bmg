@@ -36,10 +36,7 @@ var gerarRelatorio = function() {
                     await matricula.get(cpf, codigoEntidade).then((response) => {
                         array.push(response)
     
-                        if(i == (csvData.length - 1) ){
-                            console.log(i, array)
-                            resolve(array)
-                        } 
+                        if(i == (csvData.length - 1) ) resolve(array)
                     })
                 }
             })();
