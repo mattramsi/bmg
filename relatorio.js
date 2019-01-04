@@ -31,13 +31,15 @@ var gerarRelatorio = function() {
                 var cpf = csvData[i].cpf
                 var codigoEntidade = csvData[i].codigoEntidade
 
+                (function(index){
                
-                matricula.get(cpf, codigoEntidade).then((response) => {
-                    array.push(response)
+                    matricula.get(cpf, codigoEntidade).then((response) => {
+                        array.push(response)
 
-                    console.log(i, array)
-                    if(i == csvData.length) resolve(array)
-                })
+                        console.log(i, array)
+                        if(i == csvData.length) resolve(array)
+                    })
+                })(i); 
             }
         })
     })
