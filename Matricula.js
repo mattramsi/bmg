@@ -40,9 +40,12 @@ module.exports = {
                             saldo.get(cpf, codigoEntidade, matricula, contaInterna).then( (response) => {
                                 
                                 var obj = {};
+                                obj.cpf = cpf
+                                obj.contaInterna = contaInterna
                                 obj.matricula = matricula;
                                 obj.contaInterna = contaInterna
-                                obj.saldo = response
+                                obj.valorSaqueMaximo = response.valorSaqueMaximo.valor
+                                obj.valorSaqueMinimo = response.valorSaqueMinimo.valor
                                
                                 resolve(obj)
                             })   

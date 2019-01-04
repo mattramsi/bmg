@@ -42,7 +42,7 @@ var gerarRelatorio = function() {
                     console.log(e); // "Ah, não!"
                 })
 
-                console.log(array)
+                console.log(JSON.stringify(array))
             }
         })();
     })
