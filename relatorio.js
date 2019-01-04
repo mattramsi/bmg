@@ -30,6 +30,7 @@ var gerarRelatorio = function() {
             var cpf = csvData[i].cpf
             var codigoEntidade = csvData[i].codigoEntidade
 
+            console.log(i)
             matricula.get(cpf, codigoEntidade).then((response) => {
                 array.push(response)
 
