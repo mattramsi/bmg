@@ -26,8 +26,8 @@ var gerarRelatorio = function() {
     readCSV().then((response) => {
         var csvData = response; 
 
-        var array = [];
-        
+        this.array = [];
+
         for(var i = 0; i < csvData.length; i++) {        
             var cpf = csvData[i].cpf
             var codigoEntidade = csvData[i].codigoEntidade
