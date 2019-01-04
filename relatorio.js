@@ -52,7 +52,7 @@ var gerarRelatorio = function() {
 }
 
 gerarRelatorio().then((result) => {
-    console.log(result)
+    console.log("oi", result)
 })
 
 
