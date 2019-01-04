@@ -20,26 +20,25 @@ var readCSV = function() {
     });
 }
 
-
-var gerarRelatorio = function() {
+var array = [];
+var gerarRelatorio = function(array) {
 
     readCSV().then((response) => {
         var csvData = response; 
 
-        var array = [];
-        var result = this;
+        this.array = array;
 
         for(var i = 0; i < csvData.length; i++) {        
             var cpf = csvData[i].cpf
             var codigoEntidade = csvData[i].codigoEntidade
 
             return matricula.get(cpf, codigoEntidade).then((response) => {
-                array.push(response)
-                result = array;              
+                this.array.push(response)
+                    
             })
         }
 
-        console.log(JSON.stringify(result))
+        console.log(JSON.stringify(array))
     })
 }
 
