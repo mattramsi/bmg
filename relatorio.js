@@ -34,7 +34,7 @@ var gerarRelatorio = function() {
                 matricula.get(cpf, codigoEntidade).then((response) => {
                     array.push(response)
 
-                    console.log(array)
+                    // console.log(array)
                 })
             }
 
@@ -43,10 +43,18 @@ var gerarRelatorio = function() {
                   setTimeout(function(){
                     console.info(item, idx);
                     // Logs 3 lines: `some 0`, `cool 1`, `array 2`
+                    var cpf = csvData[idx].cpf;
+                    var codigoEntidade = csvData[idx].codigoEntidade; 
+                      
+                    matricula.get(cpf, codigoEntidade).then((response) => {
+                        array.push(response)
+    
+                        console.log(array)
+                    })
                     resolve(); // <-- signals that this iteration is complete
                   }, 25); // delay 25 ms to make async
                 })
-              })
+            })
         })
     })
 }
