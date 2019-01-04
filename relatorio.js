@@ -6,7 +6,6 @@ var sheet_name_list = workbook.SheetNames;
 var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[0]]);
 console.log(xlData.length);
 
-function gerarRelatorio() {
 
     for(var i = 0; i < xlData.length - 1; i++) {        
        var cpf = xlData[i].cpf
@@ -18,7 +17,4 @@ function gerarRelatorio() {
        })
     }
 
-}
-
-gerarRelatorio()
 
