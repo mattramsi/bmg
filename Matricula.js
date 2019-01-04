@@ -41,13 +41,11 @@ module.exports = {
                                 
                                 var obj = {};
                                 obj.cpf = cpf
-                                obj.contaInterna = contaInterna
+                                obj.codigoEntidade = codigoEntidade
                                 obj.matricula = matricula;
                                 obj.contaInterna = contaInterna
                                 obj.valorSaqueMaximo = response.valorSaqueMaximo.valor
                                 obj.valorSaqueMinimo = response.valorSaqueMinimo.valor
-                                
-                                console.log("FILE MATRICULA", obj)
 
                                 resolve(obj)
                             })   
@@ -55,15 +53,15 @@ module.exports = {
                     }
                 } else{
 
-                    // var obj = {};
-                    // obj.cpf = cpf
-                    // obj.contaInterna = contaInterna
-                    // obj.matricula = matricula;
-                    // obj.contaInterna = contaInterna
-                    // obj.valorSaqueMaximo = response.valorSaqueMaximo.valor
-                    // obj.valorSaqueMinimo = response.valorSaqueMinimo.valor
+                    var obj = {};
+                    obj.cpf = cpf
+                    obj.codigoEntidade = codigoEntidade
+                    obj.matricula = 0;
+                    obj.contaInterna = 0
+                    obj.valorSaqueMaximo = 0
+                    obj.valorSaqueMinimo = 0
 
-                    reject("Não foi possivel gerar o relatório");
+                    reject(obj);
                 }
                 
             }); 
