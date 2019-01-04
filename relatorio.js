@@ -12,9 +12,11 @@ var gerarRelatorio = function() {
     for(var i = 0; i < xlData.length; i++) {        
         var cpf = xlData[i].cpf
         var codigoEntidade = xlData[i].codigoEntidade
-        
+
         matricula.get(cpf, codigoEntidade).then((response) => {
-                console.log("oi" + i , response)
+
+                console.log("oi" + i , JSON.stringify(response))
+                
         })
     }
 }

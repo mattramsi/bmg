@@ -30,7 +30,6 @@ module.exports = {
                 var multiRef = json['soapenv:Envelope']['soapenv:Body'].multiRef
 
                 if(multiRef) {
-                    var array = [];
                     for(var i = 0; i < multiRef.length - 1; i++) {  
                         
                         if(multiRef[i].matricula && multiRef[i].numeroContaInterna) {
@@ -43,13 +42,11 @@ module.exports = {
                                 obj.matricula = matricula;
                                 obj.contaInterna = contaInterna
                                 obj.saldo = response
-                                array.push(obj);
-                                console.log(JSON.stringify(array))
+                               
+                                resolve(obj)
                             })   
                         }
                     }
-
-                    resolve(array)
                 } else{
                     reject("Não foi possivel gerar o relatório");
                 }
