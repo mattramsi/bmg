@@ -42,10 +42,9 @@ var gerarRelatorio = function() {
                         console.info(item, idx);
                         // console.log(array)
 
-                        if(idx == (csvData.length - 1)) {
-                            console.log(array)
-                            resolve(array);
-                        }
+                    
+                        resolve(array);
+                        
                     })
 
                      // <-- signals that this iteration is complete
