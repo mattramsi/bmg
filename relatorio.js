@@ -1,17 +1,26 @@
-var XLSX = require('xlsx')
+
 var matricula = require('./Matricula');
+var fs = require('fs'); 
+var parse = require('csv-parser');
 
-var workbook = XLSX.readFile('ListaDeCpfs.xlsx');
-var sheet_name_list = workbook.SheetNames;
-var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[0]]);
-console.log(xlData.length);
-
+var csvData=[];
+fs.createReadStream('ListaDeCpfs.csv')
+    .pipe(parse({delimiter: ':'}))
+    .on('data', function(csvrow) {
+        console.log(csvrow);
+        //do something with csvrow
+        csvData.push(csvrow);        
+    })
+    .on('end',function() {
+      //do something wiht csvData
+      console.log(csvData);
+    });
 
 var gerarRelatorio = function() {
 
-    for(var i = 0; i < xlData.length; i++) {        
-        var cpf = xlData[i].cpf
-        var codigoEntidade = xlData[i].codigoEntidade
+    for(var i = 0; i < csvData.length; i++) {        
+        var cpf = csvData[i].cpf
+        var codigoEntidade = csvData[i].codigoEntidade
 
         matricula.get(cpf, codigoEntidade).then((response) => {
 
