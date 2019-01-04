@@ -24,7 +24,7 @@ module.exports = {
         const opts = { body: xml, headers: { 'Content-Type': 'text/xml; charset=utf-8', SOAPAction: 'runTransaction' }}
 
         return new Promise((resolve, reject) => {
-            
+
             request.post(url, opts, (err, response) => {
             
                 var json = JSON.parse(parser.toJson(response.body));
@@ -48,9 +48,7 @@ module.exports = {
                             })   
                         }
                     }
-                } else{
-                    reject("Não foi possivel gerar o relatório");
-                }
+                } 
                 
             }); 
         })
