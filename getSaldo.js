@@ -35,11 +35,13 @@ module.exports = {
                         var obj = {};
                         obj.valorSaqueMaximo = {};
                         obj.valorSaqueMinimo = {};
-                        
+
                         if(multiRef[i].valorSaqueMaximo){
                             obj.valorSaqueMaximo.id = multiRef[i].valorSaqueMaximo.href.replace("#", "");        
                         } 
 
+                        console.log(multiRef[i].id)
+                        console.log(obj.valorSaqueMaximo.id)
                         if(multiRef[i].id == obj.valorSaqueMaximo.id) {
                             obj.valorSaqueMaximo.valor = multiRef[indice].$t;
                         }
