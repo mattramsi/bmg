@@ -43,9 +43,9 @@ module.exports = {
                         if(multiRef[i].valorSaqueMinimo) obj.valorSaqueMinimo.id = multiRef[i].valorSaqueMinimo.href.replace("#", "");
                         if(multiRef[i].id == obj.valorSaqueMinimo.id) obj.valorSaqueMinimo.valor = multiRef[i].$t;
                         
-                        resolve(obj);
                     }
 
+                    resolve(obj);
                   
                 } else {
                     reject("Sem saldo")
