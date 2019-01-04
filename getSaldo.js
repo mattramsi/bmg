@@ -30,30 +30,18 @@ module.exports = {
                 var multiRef = json['soapenv:Envelope']['soapenv:Body'].multiRef
 
                 if(multiRef) {
+
+                    var obj = {};
+                    obj.valorSaqueMaximo = {};
+                    obj.valorSaqueMinimo = {};
+
                     for(var i = 0; i < multiRef.length - 1; i++) {        
 
-                        var obj = {};
-                        obj.valorSaqueMaximo = {};
-                        obj.valorSaqueMinimo = {};
-
-                        if(multiRef[i].valorSaqueMaximo){
-                            obj.valorSaqueMaximo.id = multiRef[i].valorSaqueMaximo.href.replace("#", "");        
-                        } 
-
-                        console.log(multiRef[i].id)
-                        console.log(obj.valorSaqueMaximo.id)
-                        if(multiRef[i].id == obj.valorSaqueMaximo.id) {
-                            obj.valorSaqueMaximo.valor = multiRef[indice].$t;
-                        }
-
-                        if(multiRef[i].valorSaqueMinimo){
-                            
-                            obj.valorSaqueMinimo.id = multiRef[i].valorSaqueMinimo.href.replace("#", "");
-                        }
-
-                        if(multiRef[i].id == obj.valorSaqueMinimo.id) {
-                            obj.valorSaqueMinimo.valor = multiRef[indice].$t;
-                        }
+                        if(multiRef[i].valorSaqueMaximo) obj.valorSaqueMaximo.id = multiRef[i].valorSaqueMaximo.href.replace("#", "");        
+                        if(multiRef[i].id == obj.valorSaqueMaximo.id) obj.valorSaqueMaximo.valor = multiRef[indice].$t;
+                        
+                        if(multiRef[i].valorSaqueMinimo) obj.valorSaqueMinimo.id = multiRef[i].valorSaqueMinimo.href.replace("#", "");
+                        if(multiRef[i].id == obj.valorSaqueMinimo.id) obj.valorSaqueMinimo.valor = multiRef[indice].$t;
                         
                         resolve(obj);
                     }
