@@ -22,7 +22,6 @@ var readCSV = function() {
 
 var gerarRelatorio = function() {
 
-    return new Promise((resolve, reject) => {
         readCSV().then((response) => {
             var csvData = response; 
 
@@ -33,13 +32,13 @@ var gerarRelatorio = function() {
                     var cpf = csvData[i].cpf;
                     var codigoEntidade = csvData[i].codigoEntidade;  
 
-                    var loadPercent = (csvData.length - i)/csvData.length + "%"
+                    var loadPercent = ((i/csvData.length) * 100) + "%"
                     console.log(loadPercent)
                     
                     await matricula.get(cpf, codigoEntidade).then((response) => {
                         array.push(response)
                     
-                        if(i == (csvData.length - 1) ) resolve(array)
+                        if(i == (csvData.length - 1) ) console.log(array)
                     }).catch(function(e) {
                         console.log(e); // "Ah, não!"
                     })
@@ -49,10 +48,7 @@ var gerarRelatorio = function() {
     })
 }
 
-gerarRelatorio().then((result) => {
-    console.log(result)
-})
-
+gerarRelatorio()
 
 
 
