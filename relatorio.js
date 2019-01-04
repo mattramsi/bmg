@@ -41,6 +41,7 @@ var gerarRelatorio = function() {
                         array.push(response)
                         console.info(item, idx);
 
+                        console.log(csvData.lenth)
                         if(idx == (csvData.lenth - 1) )
                             console.log(array)
 
