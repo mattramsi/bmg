@@ -29,16 +29,29 @@ module.exports = {
 
                 var multiRef = json['soapenv:Envelope']['soapenv:Body'].multiRef
 
-                var arrayIds = [];
                 if(multiRef) {
-                    
                     for(var i = 0; i < multiRef.length - 1; i++) {        
-                        if(multiRef[i].valorSaqueMaximo && multiRef[i].valorSaqueMinimo) {
-                            arrayIds.push(multiRef[i].valorSaqueMaximo.href.replace("#", ""));
-                            arrayIds.push(multiRef[i].valorSaqueMinimo.href.replace("#", ""));
+
+                        var obj = {};
+                        if(multiRef[i].valorSaqueMaximo){
+                            obj.valorSaqueMaximo = {};
+                            obj.valorSaqueMaximo.id = multiRef[i].valorSaqueMaximo.href.replace("#", "");
+                            
+                            var indice = multiRef.indexOf(obj.valorSaqueMaximo.id)
+                            obj.valorSaqueMaximo.valor = multiRef[indice].$t;
+                        } 
+
+                        if(multiRef[i].valorSaqueMinimo){
+                            obj.valorSaqueMinimo = {};
+                            obj.valorSaqueMinimo.id = multiRef[i].valorSaqueMinimo.href.replace("#", "");
+                            
+                            var indice = multiRef.indexOf(obj.valorSaqueMinimo.id);
+                            obj.valorSaqueMinimo.valor = multiRef[indice].$t;    
                         }
+                        
+                        resolve(obj);
                     }
-                    resolve(arrayIds);
+
                   
                 } else {
                     reject("Sem saldo")
