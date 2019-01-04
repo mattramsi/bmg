@@ -42,7 +42,7 @@ var gerarRelatorio = function() {
                     array.push(e)
                 })
                 
-                console.log(JSON.stringify(array))
+                if(i == (3-1) ) console.log(JSON.stringify(array))
             }
         })();
 
