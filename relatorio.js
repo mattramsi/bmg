@@ -41,6 +41,7 @@ var gerarRelatorio = function() {
                 
                     if(i == (csvData.length - 1) ) console.log(array)
                 }).catch(function(e) {
+                    array.push("1")
                     console.log(e); // "Ah, não!"
                 })
 
