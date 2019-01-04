@@ -30,7 +30,7 @@ var gerarRelatorio = function() {
         (async function loop() {
             for (let i = 0; i < 3 ; i++) {
                 var cpf = csvData[i].cpf;
-                var codigoEntidade = csvData[i].codigoEntidade;  
+                var codigoEntidade = csvData[i].entidade;  
 
                 var loadPercent = ((i/csvData.length) * 100).toFixed(2) + "%";
                 console.log(loadPercent)
