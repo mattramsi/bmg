@@ -41,9 +41,13 @@ var gerarRelatorio = function() {
                         array.push(response)
                         console.info(item, idx);
                         // console.log(array)
+
+                        if(idx == 0) {
+                            resolve(array);
+                        }
                     })
 
-                    resolve(array); // <-- signals that this iteration is complete
+                     // <-- signals that this iteration is complete
                   }, 25); // delay 25 ms to make async
                 })
             })
@@ -51,10 +55,7 @@ var gerarRelatorio = function() {
     })
 }
 
-gerarRelatorio().then((result) => {
-    console.log("oi", result)
-})
-
+gerarRelatorio()
 
 
 
