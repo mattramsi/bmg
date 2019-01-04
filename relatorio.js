@@ -41,7 +41,7 @@ var gerarRelatorio = function(array) {
     })
 }
 
-gerarRelatorio()
+gerarRelatorio(array)
 
 
 
