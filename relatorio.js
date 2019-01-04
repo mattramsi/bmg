@@ -2,7 +2,6 @@
 var matricula = require('./Matricula');
 var fs = require('fs'); 
 var parse = require('csv-parser');
-var forAsync = require('for-async');
 
 var readCSV = function() {
 
@@ -28,37 +27,25 @@ var gerarRelatorio = function() {
             var csvData = response; 
 
             var array = [];
-
-            forAsync(csvData, function(item, idx){
-                return new Promise(function(resolve){
-                  setTimeout(function(){
-                    
-                    // Logs 3 lines: `some 0`, `cool 1`, `array 2`
-                    var cpf = csvData[idx].cpf;
-                    var codigoEntidade = csvData[idx].codigoEntidade; 
-
+            for(var i = 0; i <= csvData.length - 1; i++) {        
+                var cpf = csvData[i].cpf;
+                var codigoEntidade = csvData[i].codigoEntidade;   
                     matricula.get(cpf, codigoEntidade).then((response) => {
                         array.push(response)
-                        console.info(item, idx);
 
-                        console.log(csvData.lenth)
-                        if(idx == (csvData.lenth - 1) )
-                            console.log(array)
-
-                    
-                        resolve(array);
-                        
+                        console.log(i, array)
+                        if(i == csvData.length) resolve(array)
                     })
-
-                     // <-- signals that this iteration is complete
-                  }, 25); // delay 25 ms to make async
-                })
-            })
+      
+            }
         })
     })
 }
 
-gerarRelatorio()
+gerarRelatorio().then((result) => {
+    console.log(result)
+})
+
 
 
 
