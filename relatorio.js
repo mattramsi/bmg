@@ -34,11 +34,10 @@ var gerarRelatorio = function(array) {
 
             return matricula.get(cpf, codigoEntidade).then((response) => {
                 this.array.push(response)
-                    
             })
         }
 
-        console.log(JSON.stringify(array))
+        console.log(JSON.stringify(this.array))
     })
 }
 
