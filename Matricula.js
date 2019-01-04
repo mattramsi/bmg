@@ -30,7 +30,7 @@ module.exports = {
                 var multiRef = json['soapenv:Envelope']['soapenv:Body'].multiRef
 
                 if(multiRef) {
-                    
+
                     var obj = {};
                     for(var i = 0; i < multiRef.length - 1; i++) {  
                         
@@ -38,15 +38,16 @@ module.exports = {
                             var matricula = multiRef[i].matricula.$t;
                             var contaInterna = multiRef[i].numeroContaInterna.$t
 
-                            saldo.get(cpf, codigoEntidade, matricula, contaInterna).then( (response) => {
+                            // saldo.get(cpf, codigoEntidade, matricula, contaInterna) 
+                            // .then( (response) => {
                                 
                                 obj.matricula = matricula;
                                 obj.contaInterna = contaInterna
-                                obj.saldo = response
+                                obj.saldo =  saldo.get(cpf, codigoEntidade, matricula, contaInterna) 
                                 
                                 return obj;
                                 // resolve(obj)
-                            })   
+                            // })   
                         }
                     }
                 // } else{
