@@ -22,28 +22,30 @@ var readCSV = function() {
 
 var gerarRelatorio = function() {
 
-    readCSV().then((response) => {
-        var csvData = response; 
+    return new Promise((resolve, reject) => {
+        readCSV().then((response) => {
+            var csvData = response; 
 
-        var array = [];
-        for(var i = 0; i < csvData.length - 1; i++) {        
-            var cpf = csvData[i].cpf
-            var codigoEntidade = csvData[i].codigoEntidade
+            var array = [];
+            for(var i = 0; i <= csvData.length - 1; i++) {        
+                var cpf = csvData[i].cpf
+                var codigoEntidade = csvData[i].codigoEntidade
 
-            console.log(i)
-            matricula.get(cpf, codigoEntidade).then((response) => {
-                array.push(response)
+                console.log(i)
+                matricula.get(cpf, codigoEntidade).then((response) => {
+                    array.push(response)
 
-                if(i == csvData.length)
-                 console.log(array)
-            })
-        }
-
-        
+                    console.log(array)
+                    if(i == csvData.length) resolve(array)
+                })
+            }
+        })
     })
 }
 
-gerarRelatorio()
+gerarRelatorio().then((result) => {
+    console.log(result)
+})
 
 
 
