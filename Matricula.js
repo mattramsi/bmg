@@ -46,12 +46,23 @@ module.exports = {
                                 obj.contaInterna = contaInterna
                                 obj.valorSaqueMaximo = response.valorSaqueMaximo.valor
                                 obj.valorSaqueMinimo = response.valorSaqueMinimo.valor
-                               
+                                
+                                console.log("FILE MATRICULA", obj)
+
                                 resolve(obj)
                             })   
                         }
                     }
                 } else{
+
+                    // var obj = {};
+                    // obj.cpf = cpf
+                    // obj.contaInterna = contaInterna
+                    // obj.matricula = matricula;
+                    // obj.contaInterna = contaInterna
+                    // obj.valorSaqueMaximo = response.valorSaqueMaximo.valor
+                    // obj.valorSaqueMinimo = response.valorSaqueMinimo.valor
+
                     reject("Não foi possivel gerar o relatório");
                 }
                 

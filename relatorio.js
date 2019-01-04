@@ -40,9 +40,9 @@ var gerarRelatorio = function() {
                     array.push(response)
                 }).catch(function(e) {
                     array.push(e)
-                    console.log(e); // "Ah, não!"
                 })
-                if(i == (3 - 1))  console.log(JSON.stringify(array))
+                
+                console.log(JSON.stringify(array))
             }
         })();
 
