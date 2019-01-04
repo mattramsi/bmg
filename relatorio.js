@@ -7,14 +7,20 @@ var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[0]]);
 console.log(xlData.length);
 
 
-    for(var i = 0; i < xlData.length - 1; i++) {        
-       var cpf = xlData[i].cpf
-       var codigoEntidade = xlData[i].codigoEntidade
+var gerarRelatorio = function() {
 
-       console.log("oi", xlData)
-       matricula.get(cpf, codigoEntidade).then((response) => {
-            console.log("oi", response)
-       })
+    for(var i = 0; i < xlData.length; i++) {        
+        var cpf = xlData[i].cpf
+        var codigoEntidade = xlData[i].codigoEntidade
+
+        console.log("oi", xlData)
+        matricula.get(cpf, codigoEntidade).then((response) => {
+                console.log("oi", response)
+        })
     }
+}
+
+gerarRelatorio()
+
 
 
