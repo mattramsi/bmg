@@ -43,7 +43,9 @@ var gerarRelatorio = function() {
                         // console.log(array)
 
                         if(idx == 0) {
+                            console.log(array)
                             resolve(array);
+                            
                         }
                     })
 
