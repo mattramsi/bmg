@@ -28,15 +28,15 @@ var gerarRelatorio = function() {
             var csvData = response; 
 
             var array = [];
-            for(var i = 0; i <= csvData.length - 1; i++) {        
-                var cpf = csvData[i].cpf;
-                var codigoEntidade = csvData[i].codigoEntidade;   
-                matricula.get(cpf, codigoEntidade).then((response) => {
-                    array.push(response)
+            // for(var i = 0; i <= csvData.length - 1; i++) {        
+            //     var cpf = csvData[i].cpf;
+            //     var codigoEntidade = csvData[i].codigoEntidade;   
+            //     matricula.get(cpf, codigoEntidade).then((response) => {
+            //         array.push(response)
 
-                    // console.log(array)
-                })
-            }
+            //         // console.log(array)
+            //     })
+            // }
 
             forAsync(csvData, function(item, idx){
                 return new Promise(function(resolve){
