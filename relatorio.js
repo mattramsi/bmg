@@ -22,31 +22,31 @@ var readCSV = function() {
 
 var gerarRelatorio = function() {
 
-        readCSV().then((response) => {
-            var csvData = response; 
+    readCSV().then((response) => {
+        var csvData = response; 
 
-            var array = [];
+        var array = [];
 
-            (async function loop() {
-                for (let i = 0; i < csvData.length ; i++) {
-                    var cpf = csvData[i].cpf;
-                    var codigoEntidade = csvData[i].codigoEntidade;  
+        (async function loop() {
+            for (let i = 0; i < csvData.length ; i++) {
+                var cpf = csvData[i].cpf;
+                var codigoEntidade = csvData[i].codigoEntidade;  
 
-                    var loadPercent = ((i/csvData.length) * 100) + "%"
-                    console.log(loadPercent)
-                    
-                    await matricula.get(cpf, codigoEntidade).then((response) => {
-                        array.push(response)
-                    
-                        if(i == (csvData.length - 1) ) console.log(array)
-                    }).catch(function(e) {
-                        console.log(e); // "Ah, não!"
-                    })
-                }
-            })();
-        })
+                var loadPercent = ((i/csvData.length) * 100) + "%";
+                console.log(loadPercent)
+                
+                await matricula.get(cpf, codigoEntidade).then((response) => {
+                    array.push(response)
+                
+                    if(i == (csvData.length - 1) ) console.log(array)
+                }).catch(function(e) {
+                    console.log(e); // "Ah, não!"
+                })
+            }
+        })();
     })
 }
+
 
 gerarRelatorio()
 
