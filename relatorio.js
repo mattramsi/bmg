@@ -12,6 +12,7 @@ fs.createReadStream('ListaDeCpfs.csv')
     .on('end',function() {
       //do something wiht csvData
       console.log(csvData);
+      gerarRelatorio()
     });
 
 var gerarRelatorio = function() {
@@ -28,7 +29,7 @@ var gerarRelatorio = function() {
     }
 }
 
-gerarRelatorio()
+
 
 
 
