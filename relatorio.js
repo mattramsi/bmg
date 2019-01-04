@@ -27,9 +27,7 @@ var gerarRelatorio = function() {
         var csvData = response; 
 
         var array = [];
-
-        var getStuff = $.when(req1,req2).then(function(data1,data2) { return data1.concat(data2); });
-
+        
         for(var i = 0; i < csvData.length; i++) {        
             var cpf = csvData[i].cpf
             var codigoEntidade = csvData[i].codigoEntidade
