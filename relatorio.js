@@ -27,22 +27,22 @@ var gerarRelatorio = function() {
             var csvData = response; 
 
             var array = [];
-            for(var i = 0; i <= csvData.length - 1; i++) {        
-                var cpf = csvData[i].cpf;
-                var codigoEntidade = csvData[i].codigoEntidade;   
-                matricula.get(cpf, codigoEntidade).then((response) => {
-                    array.push(response)
+            // for(var i = 0; i <= csvData.length - 1; i++) {        
+            //     var cpf = csvData[i].cpf;
+            //     var codigoEntidade = csvData[i].codigoEntidade;   
+            //     matricula.get(cpf, codigoEntidade).then((response) => {
+            //         array.push(response)
 
-                    console.log(i, array)
-                    if(i == csvData.length) resolve(array)
-                })
-            }
+            //         console.log(i, array)
+            //         if(i == csvData.length) resolve(array)
+            //     })
+            // }
 
             (async function loop() {
                 for (let i = 0; i < csvData.length ; i++) {
                     var cpf = csvData[i].cpf;
                     var codigoEntidade = csvData[i].codigoEntidade;  
-                    
+
                     await matricula.get(cpf, codigoEntidade).then((response) => {
                         array.push(response)
     
