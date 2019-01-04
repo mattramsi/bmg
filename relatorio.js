@@ -33,13 +33,12 @@ var gerarRelatorio = function() {
                     var cpf = csvData[i].cpf;
                     var codigoEntidade = csvData[i].codigoEntidade;  
 
+                    var loadPercent = csvData.length/i + "%"
+                    console.log(loadPercent)
                     
                     await matricula.get(cpf, codigoEntidade).then((response) => {
                         array.push(response)
-                        
-                        var loadPercent = csvData.length/i + "%"
-                        console.log(loadPercent)
-                        
+                    
                         if(i == (csvData.length - 1) ) resolve(array)
                     }).catch(function(e) {
                         console.log(e); // "Ah, não!"
