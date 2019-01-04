@@ -3,10 +3,6 @@ var matricula = require('./Matricula');
 var fs = require('fs'); 
 var parse = require('csv-parser');
 
-const Json2csvParser = require('json2csv').Parser;
-const fields = ['cpf', 'codigoEntidade', 'matricula', 'contaInterna', 'valorSaqueMaximo', 'valorSaqueMinimo'];
-const opts = { fields };
-
 var readCSV = function() {
 
     var csvData=[];
@@ -48,14 +44,6 @@ var gerarRelatorio = function() {
                 
                 if(i == (3-1) ){
                     console.log(JSON.stringify(array))
-
-                    try {
-                        const parser = new Json2csvParser(opts);
-                        const csv = parser.parse(array);
-                        console.log(csv);
-                    } catch (err) {
-                    console.error(err);
-                    }
                 } 
             }
         })();

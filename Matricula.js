@@ -53,15 +53,15 @@ module.exports = {
                     }
                 } else{
 
-                    var obj = {};
-                    obj.cpf = cpf
-                    obj.codigoEntidade = codigoEntidade
-                    obj.matricula = 0;
-                    obj.contaInterna = 0
-                    obj.valorSaqueMaximo = 0
-                    obj.valorSaqueMinimo = 0
+                    // var obj = {};
+                    // obj.cpf = cpf
+                    // obj.codigoEntidade = codigoEntidade
+                    // obj.matricula = 0;
+                    // obj.contaInterna = 0
+                    // obj.valorSaqueMaximo = 0
+                    // obj.valorSaqueMinimo = 0
 
-                    reject(obj);
+                    reject("Não foi possivel gerar o relatório.");
                 }
                 
             }); 
