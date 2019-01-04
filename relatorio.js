@@ -28,15 +28,6 @@ var gerarRelatorio = function() {
             var csvData = response; 
 
             var array = [];
-            // for(var i = 0; i <= csvData.length - 1; i++) {        
-            //     var cpf = csvData[i].cpf;
-            //     var codigoEntidade = csvData[i].codigoEntidade;   
-            //     matricula.get(cpf, codigoEntidade).then((response) => {
-            //         array.push(response)
-
-            //         // console.log(array)
-            //     })
-            // }
 
             forAsync(csvData, function(item, idx){
                 return new Promise(function(resolve){
@@ -49,9 +40,10 @@ var gerarRelatorio = function() {
                     matricula.get(cpf, codigoEntidade).then((response) => {
                         array.push(response)
                         console.info(item, idx);
-                        console.log(array)
+                        // console.log(array)
                     })
-                    resolve(); // <-- signals that this iteration is complete
+
+                    resolve(array); // <-- signals that this iteration is complete
                   }, 25); // delay 25 ms to make async
                 })
             })
