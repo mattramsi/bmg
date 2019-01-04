@@ -21,7 +21,7 @@ module.exports = {
 
         const opts = { body: xml, headers: { 'Content-Type': 'text/xml; charset=utf-8', SOAPAction: 'runTransaction' }}
 
-        // return new Promise((resolve, reject) => {
+        return new Promise((resolve, reject) => {
             //GET SALDO
            request.post(url, opts, (err, response) => {
                 
@@ -42,17 +42,16 @@ module.exports = {
                         
                         if(multiRef[i].valorSaqueMinimo) obj.valorSaqueMinimo.id = multiRef[i].valorSaqueMinimo.href.replace("#", "");
                         if(multiRef[i].id == obj.valorSaqueMinimo.id) obj.valorSaqueMinimo.valor = multiRef[i].$t;
-                        
+                           
                     }
 
-                    return obj;
-                    // resolve(obj);
-                  
-                // } else {
-                //     reject("Sem saldo")
+                    resolve(obj);
+                    
+                } else {
+                    reject("Sem saldo")
                 }
             })
-        // }); 
+        }); 
     }   
 }  
 
