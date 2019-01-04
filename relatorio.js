@@ -37,6 +37,8 @@ var gerarRelatorio = function() {
                         array.push(response)
     
                         if(i == (csvData.length - 1) ) resolve(array)
+                    }).catch(function(e) {
+                        console.log(e); // "Ah, não!"
                     })
                 }
             })();
