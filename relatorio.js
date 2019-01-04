@@ -36,12 +36,9 @@ var gerarRelatorio = function() {
                 console.log(loadPercent)
                 
                 await matricula.get(cpf, codigoEntidade).then((response) => {
-                    array.push("1")
                     array.push(response)
-                
-                    if(i == (csvData.length - 1) ) console.log(array)
                 }).catch(function(e) {
-                    array.push("1")
+                    array.push(e)
                     console.log(e); // "Ah, não!"
                 })
 
