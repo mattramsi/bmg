@@ -2,7 +2,6 @@
 var matricula = require('./Matricula');
 var fs = require('fs'); 
 var parse = require('csv-parser');
-var json2csv = require('json2csv');
 
 var readCSV = function() {
 
@@ -34,19 +33,10 @@ var gerarRelatorio = function() {
 
             matricula.get(cpf, codigoEntidade).then((response) => {
                 array.push(response)
+                console.log(JSON.stringify(array))
             })
         }
-
-        console.log(JSON.stringify(array))
-        json2csv({data: array, fields: ['cpf', 'codigoEntidade', 'valorSaqueMinimo', 'valorSaqueMaximo']}, function(err, csv) {
-            if (err) console.log(err);
-            fs.writeFile('cars.csv', csv, function(err) {
-                if (err) throw err;
-                console.log('cars file saved');
-            });
-        });
     })
-  
 }
 
 gerarRelatorio()
