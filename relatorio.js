@@ -38,6 +38,8 @@ var gerarRelatorio = function() {
                         array.push(response)
                         
                         var loadPercent = csvData.length/i + "%"
+                        console.log(loadPercent)
+                        
                         if(i == (csvData.length - 1) ) resolve(array)
                     }).catch(function(e) {
                         console.log(e); // "Ah, não!"
