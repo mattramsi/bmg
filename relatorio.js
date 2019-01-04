@@ -41,14 +41,14 @@ var gerarRelatorio = function() {
             forAsync(csvData, function(item, idx){
                 return new Promise(function(resolve){
                   setTimeout(function(){
-                    console.info(item, idx);
+                    
                     // Logs 3 lines: `some 0`, `cool 1`, `array 2`
                     var cpf = csvData[idx].cpf;
                     var codigoEntidade = csvData[idx].codigoEntidade; 
-                      
+
                     matricula.get(cpf, codigoEntidade).then((response) => {
                         array.push(response)
-    
+                        console.info(item, idx);
                         console.log(array)
                     })
                     resolve(); // <-- signals that this iteration is complete
