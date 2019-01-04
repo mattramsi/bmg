@@ -32,10 +32,9 @@ module.exports = {
                 if(multiRef) {
                     for(var i = 0; i < multiRef.length - 1; i++) {        
                         if(multiRef[i].valorSaqueMaximo && multiRef[i].valorSaqueMinimo) {
-                            var obj = {};
-                            obj.valorSaqueMinimo = multiRef[i].valorSaqueMinimo.href;
-                            obj.valorSaqueMaximo = multiRef[i].valorSaqueMaximo.href;
-                            resolve(obj);
+                            var arrayIds = [];
+                            arrayIds.push(multiRef[i].valorSaqueMinimo.href.replace("#", ""));
+                            resolve(arrayIds);
                         }
                     }
 
