@@ -49,7 +49,7 @@ request.post(url, opts, (err, response) => {
                 obj.contaInterna = contaInterna
                 obj.saldo = response
                 array.push(obj);
-                console.log(JSON.parse(array))
+                console.log(JSON.stringify(array))
             })   
         }
     }
