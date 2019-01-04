@@ -40,7 +40,7 @@ var gerarRelatorio = function() {
                     matricula.get(cpf, codigoEntidade).then((response) => {
                         array.push(response)
                         console.info(item, idx);
-                        // console.log(array)
+                        console.log(array)
 
                     
                         resolve(array);
