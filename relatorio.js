@@ -40,7 +40,7 @@ var gerarRelatorio = function() {
                 await matricula.get(cpf, codigoEntidade).then((response) => {
                     array.push(response)
                 }).catch(function(e) {
-                    array.push(e)
+                    // array.push(e)
                 })
                 
                 if(i == (3-1) ){
