@@ -2,7 +2,7 @@
 var matricula = require('./Matricula');
 var fs = require('fs'); 
 var parse = require('csv-parser');
-var json2xlsx = require('node-json-xlsx');
+var json2xls = require('json2xls');
 
 var readCSV = function() {
 
@@ -46,8 +46,9 @@ var gerarRelatorio = function() {
                 if(i == (3-1) ){
                     console.log(JSON.stringify(array))
 
-                    var xlsx = json2xlsx(array);
-                    fs.writeFileSync('relatorio.xlsx', xlsx, 'binary');
+                    var xls = json2xls(array);
+                    console.log(xls)
+                    fs.writeFileSync('data.xlsx', xls, 'binary');
                 } 
             }
         })();
