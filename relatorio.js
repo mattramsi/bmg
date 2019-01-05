@@ -47,8 +47,14 @@ var gerarRelatorio = function() {
                     console.log(JSON.stringify(array))
 
                     var xls = json2xls(array);
-                    console.log(xls)
-                    fs.writeFileSync('data.xlsx', xls, 'binary');
+                
+                    fs.writeFileSync('data.xlsx', xls, 'binary',  function(err) {
+                        if (err) {
+                        response.send("failed to save");
+                      } else {
+                        response.send("succeeded in saving");
+                      }
+                    });
                 } 
             }
         })();
