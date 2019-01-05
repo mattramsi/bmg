@@ -29,32 +29,25 @@ var gerarRelatorio = function() {
         var array = [];
 
         (async function loop() {
-            for (let i = 0; i < 3 ; i++) {
+            for (let i = 0; i < 10 ; i++) {
                 var cpf = csvData[i].cpf;
                 var codigoEntidade = csvData[i].entidade;  
                 
           
-                // var loadPercent = ((i/3) * 100).toFixed(2) + "%";
-                // console.log(loadPercent)
+                var loadPercent = ((i/10) * 100).toFixed(2) + "%";
+                console.log(loadPercent)
                 
                 await matricula.get(cpf, codigoEntidade).then((response) => {
                     array.push(response)
                 }).catch(function(e) {
-                    // array.push(e)
+                    array.push(e)
                 })
                 
-                if(i == (3-1) ){
+                if(i == (10-1) ){
                     console.log(JSON.stringify(array))
 
                     var xls = json2xls(array);
-                
-                    fs.writeFileSync('data.xlsx', xls, 'binary',  function(err) {
-                        if (err) {
-                        response.send("failed to save");
-                      } else {
-                        response.send("succeeded in saving");
-                      }
-                    });
+                    fs.writeFileSync('Relatório.xlsx', xls, 'binary');
                 } 
             }
         })();
