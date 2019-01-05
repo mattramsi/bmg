@@ -46,8 +46,8 @@ var gerarRelatorio = function() {
                 if(i == (3-1) ){
                     console.log(JSON.stringify(array))
 
-                    var xlsx = json2xlsx(json);
-                    fs.writeFileSync('data.xlsx', xlsx, 'binary');
+                    var xlsx = json2xlsx(array);
+                    fs.writeFileSync('relatorio.xlsx', xlsx, 'binary');
                 } 
             }
         })();
