@@ -27,8 +27,8 @@ module.exports = {
             
             request.post(url, opts, (err, response) => {
             
-                var json = JSON.parse(parser.toJson(response.body));
-                var multiRef = json['soapenv:Envelope']['soapenv:Body'].multiRef
+                var json = parser.toJson(response.body);
+                var multiRef = JSON.parse(json)['soapenv:Envelope']['soapenv:Body'].multiRef
 
                 if(multiRef) {
                     for(var i = 0; i < multiRef.length - 1; i++) {  
