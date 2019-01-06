@@ -34,9 +34,9 @@ var gerarRelatorio = function() {
 
                 if(cpf.length == 8) cpf = '0' + cpf
                 console.log(cpf);
-                
+
                 var codigoEntidade = csvData[i].entidade;  
-                
+                if(codigoEntidade.length >= 5) codigoEntidade = codigoEntidade.slice(0, -1);
           
                 var loadPercent = ((i/10) * 100).toFixed(2) + "%";
                 console.log(loadPercent)
