@@ -60,6 +60,8 @@ module.exports = {
                     obj.contaInterna = "N/A";
                     obj.valorSaqueMaximo = "N/A";
                     obj.valorSaqueMinimo = "N/A";
+                    
+                    console.log(err)
 
                     reject(obj);
                 }
