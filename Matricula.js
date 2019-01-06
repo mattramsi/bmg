@@ -60,8 +60,10 @@ module.exports = {
                     obj.contaInterna = "N/A";
                     obj.valorSaqueMaximo = "N/A";
                     obj.valorSaqueMinimo = "N/A";
+
+                    var erroMsg = JSON.parse(json)['soapenv:Envelope']['soapenv:Body']["soapenv:Fault"].faultstring
                     
-                    console.log("erro", json)
+                    console.log("erro", erroMsg)
 
                     reject(obj);
                 }
