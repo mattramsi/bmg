@@ -49,8 +49,6 @@ var gerarRelatorio = function() {
                 })
                 
                 if(i == (10-1) ){
-                    console.log(JSON.stringify(array))
-
                     var xls = json2xls(array);
                     fs.writeFileSync('Relatório.xlsx', xls, 'binary');
                 } 
