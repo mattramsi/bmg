@@ -61,7 +61,7 @@ module.exports = {
                     obj.valorSaqueMaximo = "N/A";
                     obj.valorSaqueMinimo = "N/A";
                     
-                    console.log(err)
+                    console.log("erro", json)
 
                     reject(obj);
                 }
