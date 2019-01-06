@@ -31,6 +31,10 @@ var gerarRelatorio = function() {
         (async function loop() {
             for (let i = 0; i < 10 ; i++) {
                 var cpf = csvData[i].cpf;
+
+                if(cpf.length == 8) cpf = '0' + cpf
+                console.log(cpf);
+                
                 var codigoEntidade = csvData[i].entidade;  
                 
           
