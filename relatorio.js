@@ -9,7 +9,7 @@ var readCSV = function() {
     var csvData=[];
     return new Promise((resolve, reject) => {
 
-        fs.createReadStream('ListaDeCpfs.csv')
+        fs.createReadStream('planilhatestenova.csv')
         .pipe(parse({delimiter: ':'}))
         .on('data', function(csvrow) {
             csvData.push(csvrow);        
@@ -38,11 +38,14 @@ var gerarRelatorio = function() {
                 var codigoEntidade = csvData[i].entidade;  
                 if(codigoEntidade.length >= 5) codigoEntidade = codigoEntidade.slice(0, -1);
                 console.log("Entidade: ", codigoEntidade);
+
+                var sequencialOrgao = csvData[i].sequencialOrgao;  
+                console.log("sequencialOrgao: ", sequencialOrgao);
           
                 var loadPercent = ((i/10) * 100).toFixed(2) + "%";
                 console.log(loadPercent)
                 
-                await matricula.get(cpf, codigoEntidade).then((response) => {
+                await matricula.get(cpf, codigoEntidade, sequencialOrgao).then((response) => {
                     array.push(response)
                 }).catch(function(e) {
                     array.push(e)

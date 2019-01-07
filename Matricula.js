@@ -8,7 +8,7 @@ var url = 'https://ws1.bmgconsig.com.br/webservices/SaqueComplementar?wsdl';
 // // //GET MATRICULA
 module.exports = {
 
-    get: function(cpf, codigoEntidade) {
+    get: function(cpf, codigoEntidade, sequencialOrgao) {
 
         var xml = '<soapenv:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservice.econsig.bmg.com"><soapenv:Header/><soapenv:Body><web:buscarCartoesDisponiveis >'+
                  '<param>'+
@@ -16,6 +16,7 @@ module.exports = {
                     '<senha>102030mmr@</senha>'+
                     '<codigoEntidade>' + codigoEntidade + '</codigoEntidade>'+
                     '<cpf>' + cpf + '</cpf>'+
+                    '<sequencialOrgao>' + sequencialOrgao + '</sequencialOrgao>' +
                  '</param>'+
               '</web:buscarCartoesDisponiveis>'+
            '</soapenv:Body>'+
