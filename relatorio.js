@@ -42,7 +42,7 @@ var gerarRelatorio = function() {
                 var sequencialOrgao = csvData[i].sequencialOrgao;  
                 console.log("sequencialOrgao: ", sequencialOrgao);
           
-                var loadPercent = ((i/100) * 100).toFixed(2) + "%";
+                var loadPercent = ((i/csvData.length) * 100).toFixed(2) + "%";
                 console.log(loadPercent)
                 
                 await matricula.get(cpf, codigoEntidade, sequencialOrgao).then((response) => {
