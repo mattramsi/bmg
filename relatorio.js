@@ -29,7 +29,7 @@ var gerarRelatorio = function() {
         var array = [];
 
         (async function loop() {
-            for (let i = 0; i < 10 ; i++) {
+            for (let i = 0; i < csvData.length ; i++) {
                 var cpf = csvData[i].cpf;
 
                 if(cpf.length == 8) cpf = '0' + cpf
@@ -51,7 +51,7 @@ var gerarRelatorio = function() {
                     array.push(e)
                 })
                 
-                if(i == (10-1) ){
+                if(i == (csvData.length - 1) ){
                     console.log(array)
                     var xls = json2xls(array);
                     fs.writeFileSync('Relatório.xlsx', xls, 'binary');
