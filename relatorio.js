@@ -35,7 +35,7 @@ var gerarRelatorio = function() {
                 if(cpf.length == 8) cpf = '0' + cpf
                 console.log("CPF: ", cpf);
 
-                var codigoEntidade = csvData[i].entidade;  
+                var codigoEntidade = csvData[i].codigoEntidade;  
                 if(codigoEntidade.length >= 5) codigoEntidade = codigoEntidade.slice(0, -1);
                 console.log("Entidade: ", codigoEntidade);
 
