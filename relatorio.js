@@ -29,7 +29,7 @@ var gerarRelatorio = function() {
         var array = [];
 
         (async function loop() {
-            for (let i = 0; i < 10 ; i++) {
+            for (let i = 0; i < 100 ; i++) {
                 var cpf = csvData[i].cpf;
 
                 if(cpf.length == 8) cpf = '0' + cpf
@@ -42,7 +42,7 @@ var gerarRelatorio = function() {
                 var sequencialOrgao = csvData[i].sequencialOrgao;  
                 console.log("sequencialOrgao: ", sequencialOrgao);
           
-                var loadPercent = ((i/10) * 100).toFixed(2) + "%";
+                var loadPercent = ((i/100) * 100).toFixed(2) + "%";
                 console.log(loadPercent)
                 
                 await matricula.get(cpf, codigoEntidade, sequencialOrgao).then((response) => {
@@ -51,7 +51,7 @@ var gerarRelatorio = function() {
                     array.push(e)
                 })
                 
-                if(i == (10-1) ){
+                if(i == (100-1) ){
                     console.log(array)
                     var xls = json2xls(array);
                     fs.writeFileSync('Relatório.xlsx', xls, 'binary');
