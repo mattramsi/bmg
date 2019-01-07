@@ -40,11 +40,17 @@ module.exports = {
 
                     for(var i = 0; i < multiRef.length - 1; i++) {        
 
-                        if(multiRef[i].valorSaqueMaximo) obj.valorSaqueMaximo.id = multiRef[i].valorSaqueMaximo.href.replace("#", "");        
-                        if(multiRef[i].id == obj.valorSaqueMaximo.id) obj.valorSaqueMaximo.valor = multiRef[i].$t;
+                        if(multiRef[i].valorSaqueMaximo) obj.valorSaqueMaximo.id = multiRef[i].valorSaqueMaximo.href.replace("#", "");    
+                        if(multiRef[i].id == obj.valorSaqueMaximo.id) {
+                            console.log("indice saque maximo: ", multiRef[i])
+                            obj.valorSaqueMaximo.valor = multiRef[i].$t;
+                        }
                         
                         if(multiRef[i].valorSaqueMinimo) obj.valorSaqueMinimo.id = multiRef[i].valorSaqueMinimo.href.replace("#", "");
-                        if(multiRef[i].id == obj.valorSaqueMinimo.id) obj.valorSaqueMinimo.valor = multiRef[i].$t;
+                        if(multiRef[i].id == obj.valorSaqueMinimo.id){
+                            console.log("indice saque minimo: ", multiRef[i])
+                            obj.valorSaqueMinimo.valor = multiRef[i].$t;
+                        } 
                            
                     }
 
