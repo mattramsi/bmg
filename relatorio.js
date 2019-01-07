@@ -33,14 +33,11 @@ var gerarRelatorio = function() {
                 var cpf = csvData[i].cpf;
 
                 if(cpf.length == 8) cpf = '0' + cpf
-                console.log("CPF: ", cpf);
 
                 var codigoEntidade = csvData[i].codigoEntidade;  
                 if(codigoEntidade.length >= 5) codigoEntidade = codigoEntidade.slice(0, -1);
-                console.log("Entidade: ", codigoEntidade);
 
                 var sequencialOrgao = csvData[i].sequencialOrgao;  
-                console.log("sequencialOrgao: ", sequencialOrgao);
           
                 var loadPercent = ((i/csvData.length) * 100).toFixed(2) + "%";
                 console.log(loadPercent)

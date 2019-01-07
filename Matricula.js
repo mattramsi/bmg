@@ -47,7 +47,7 @@ module.exports = {
                                 obj.contaInterna = contaInterna
                                 obj.valorSaqueMaximo = response.valorSaqueMaximo.valor
                                 obj.valorSaqueMinimo = response.valorSaqueMinimo.valor
-                                console.log(obj)
+
                                 resolve(obj)
                             })   
                         }

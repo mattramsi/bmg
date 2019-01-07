@@ -32,8 +32,6 @@ module.exports = {
 
                 if(multiRef) {
 
-                    console.log("AQUI: ", multiRef)
-
                     var obj = {};
                     obj.valorSaqueMaximo = {};
                     obj.valorSaqueMinimo = {};
