@@ -38,7 +38,7 @@ module.exports = {
                             var matricula = multiRef[i].matricula.$t;
                             var contaInterna = multiRef[i].numeroContaInterna.$t
 
-                            saldo.get(cpf, codigoEntidade, matricula, contaInterna).then( (response) => {
+                            saldo.get(cpf, codigoEntidade, matricula, contaInterna, sequencialOrgao).then( (response) => {
                                 
                                 var obj = {};
                                 obj.cpf = cpf
