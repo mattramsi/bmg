@@ -42,7 +42,7 @@ module.exports = {
                     if(multiRef[0].valorSaqueMinimo) obj.valorSaqueMinimo.id = multiRef[0].valorSaqueMinimo.href.replace("#", ""); 
 
             
-                    for(var i = 0; i < multiRef.length - 1; i++) {        
+                    for(var i = 0; i < multiRef.length; i++) {        
                         if(multiRef[i].id == obj.valorSaqueMaximo.id) obj.valorSaqueMaximo.valor = multiRef[i].$t;
                         if(multiRef[i].id == obj.valorSaqueMinimo.id) obj.valorSaqueMinimo.valor = multiRef[i].$t;    
                     }
