@@ -23,13 +23,15 @@ var readCSV = function() {
 
 var gerarRelatorio = function() {
 
+    var horaInicial = new Date();
+
     readCSV().then((response) => {
         var csvData = response; 
 
         var array = [];
 
         (async function loop() {
-            for (let i = 0; i < csvData.length ; i++) {
+            for (let i = 0; i < 2 ; i++) {
                 var cpf = csvData[i].cpf;
 
                 if(cpf.length == 8) cpf = '0' + cpf
@@ -48,10 +50,15 @@ var gerarRelatorio = function() {
                     array.push(e)
                 })
                 
-                if(i == (csvData.length - 1) ){
+                if(i == (2 - 1) ){
                     console.log(array)
                     var xls = json2xls(array);
                     fs.writeFileSync('Relatório.xlsx', xls, 'binary');
+
+                    var horaFinal = new Date();
+
+                    console.log("Início: ", horaInicial)
+                    console.log("Fim:", horaFinal)
                 } 
             }
         })();
