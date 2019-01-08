@@ -27,32 +27,8 @@ module.exports = {
         return new Promise((resolve, reject) => {
             
             request.post(url, opts, (err, response) => {
-            
-                var json = parser.toJson(response.body);
-                var multiRef = JSON.parse(json)['soapenv:Envelope']['soapenv:Body'].multiRef
 
-                if(multiRef) {
-                    for(var i = 0; i < multiRef.length - 1; i++) {  
-                        
-                        if(multiRef[i].matricula && multiRef[i].numeroContaInterna) {
-                            var matricula = multiRef[i].matricula.$t;
-                            var contaInterna = multiRef[i].numeroContaInterna.$t
-
-                            saldo.get(cpf, codigoEntidade, matricula, contaInterna, sequencialOrgao).then( (response) => {
-                                
-                                var obj = {};
-                                obj.cpf = cpf
-                                obj.codigoEntidade = codigoEntidade
-                                obj.matricula = matricula;
-                                obj.contaInterna = contaInterna
-                                obj.valorSaqueMaximo = response.valorSaqueMaximo.valor
-                                obj.valorSaqueMinimo = response.valorSaqueMinimo.valor
-
-                                resolve(obj)
-                            })   
-                        }
-                    }
-                } else{
+                if(err) {
 
                     var obj = {};
                     obj.cpf = cpf
@@ -61,12 +37,54 @@ module.exports = {
                     obj.contaInterna = "N/A";
                     obj.valorSaqueMaximo = "N/A";
                     obj.valorSaqueMinimo = "N/A";
+                    obj.erro = "Erro ao pegar matrícula"
 
-                    var erroMsg = JSON.parse(json)['soapenv:Envelope']['soapenv:Body']["soapenv:Fault"].faultstring
-                    
-                    console.log("erro", erroMsg)
+                    reject(obj)
 
-                    reject(obj);
+                } else {
+            
+                    var json = parser.toJson(response.body);
+                    var multiRef = JSON.parse(json)['soapenv:Envelope']['soapenv:Body'].multiRef
+
+                    if(multiRef) {
+                        for(var i = 0; i < multiRef.length - 1; i++) {  
+                            
+                            if(multiRef[i].matricula && multiRef[i].numeroContaInterna) {
+                                var matricula = multiRef[i].matricula.$t;
+                                var contaInterna = multiRef[i].numeroContaInterna.$t
+
+                                saldo.get(cpf, codigoEntidade, matricula, contaInterna, sequencialOrgao).then( (response) => {
+                                    
+                                    var obj = {};
+                                    obj.cpf = cpf
+                                    obj.codigoEntidade = codigoEntidade
+                                    obj.matricula = matricula;
+                                    obj.contaInterna = contaInterna
+                                    obj.valorSaqueMaximo = response.valorSaqueMaximo.valor
+                                    obj.valorSaqueMinimo = response.valorSaqueMinimo.valor
+                                    obj.erro = false
+
+                                    resolve(obj)
+                                })   
+                            }
+                        }
+                    } else {
+
+                        var obj = {};
+                        obj.cpf = cpf
+                        obj.codigoEntidade = codigoEntidade
+                        obj.matricula = "N/A";
+                        obj.contaInterna = "N/A";
+                        obj.valorSaqueMaximo = "N/A";
+                        obj.valorSaqueMinimo = "N/A";
+                        obj.erro = "Erro ao pegar Saldo"
+
+                        var erroMsg = JSON.parse(json)['soapenv:Envelope']['soapenv:Body']["soapenv:Fault"].faultstring
+                        
+                        console.log("erro", erroMsg)
+
+                        reject(obj);
+                    }
                 }
                 
             }); 

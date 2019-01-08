@@ -25,41 +25,45 @@ module.exports = {
         return new Promise((resolve, reject) => {
             //GET SALDO
            request.post(url, opts, (err, response) => {
-                
-                var json = JSON.parse(parser.toJson(response.body));
 
-                var multiRef = json['soapenv:Envelope']['soapenv:Body'].multiRef
-
-                if(multiRef) {
-
-                    var obj = {};
-                    obj.valorSaqueMaximo = {};
-                    obj.valorSaqueMinimo = {};
-
-                    if(multiRef[0].valorSaqueMaximo) obj.valorSaqueMaximo.id = multiRef[0].valorSaqueMaximo.href.replace("#", ""); 
-                    if(multiRef[0].valorSaqueMinimo) obj.valorSaqueMinimo.id = multiRef[0].valorSaqueMinimo.href.replace("#", ""); 
-
-            
-                    for(var i = 0; i < multiRef.length; i++) {        
-                        if(multiRef[i].id == obj.valorSaqueMaximo.id){
-                            obj.valorSaqueMaximo.valor = multiRef[i].$t;
-                            break;
-                        } 
-                    }
-
-
-                    for(var i = 0; i < multiRef.length; i++) {        
-                        if(multiRef[i].id == obj.valorSaqueMinimo.id) {
-                            obj.valorSaqueMinimo.valor = multiRef[i].$t;
-                            break;   
-                        }  
-                    }
-
-                    resolve(obj);
-                    
-                } else {
-                    console.log("Erro ao pegar saldo", json)
+                if(err) {
                     reject("Erro ao pegar saldo")
+                } else {
+                    var json = JSON.parse(parser.toJson(response.body));
+
+                    var multiRef = json['soapenv:Envelope']['soapenv:Body'].multiRef
+
+                    if(multiRef) {
+
+                        var obj = {};
+                        obj.valorSaqueMaximo = {};
+                        obj.valorSaqueMinimo = {};
+
+                        if(multiRef[0].valorSaqueMaximo) obj.valorSaqueMaximo.id = multiRef[0].valorSaqueMaximo.href.replace("#", ""); 
+                        if(multiRef[0].valorSaqueMinimo) obj.valorSaqueMinimo.id = multiRef[0].valorSaqueMinimo.href.replace("#", ""); 
+
+                
+                        for(var i = 0; i < multiRef.length; i++) { 
+
+                            if(multiRef[i].id == obj.valorSaqueMaximo.id)
+                                obj.valorSaqueMaximo.valor = multiRef[i].$t;
+                            
+                            if(multiRef[i].id == obj.valorSaqueMinimo.id) 
+                                obj.valorSaqueMinimo.valor = multiRef[i].$t;
+
+                        }
+
+
+                        for(var i = 0; i < multiRef.length; i++) {        
+                        
+                        }
+
+                        resolve(obj);
+                        
+                    } else {
+                        console.log("Erro ao pegar saldo", json)
+                        reject("Erro ao pegar saldo")
+                    }
                 }
             })
         }); 
