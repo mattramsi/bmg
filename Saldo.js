@@ -41,23 +41,15 @@ module.exports = {
 
             
                     for(var i = 0; i < multiRef.length; i++) {        
-                        if(multiRef[i].id == obj.valorSaqueMaximo.id){
-                            obj.valorSaqueMaximo.valor = multiRef[i].$t;
-                            break;
-                        } 
-                    }
-
-                    for(var i = 0; i < multiRef.length; i++) {        
-                        if(multiRef[i].id == obj.valorSaqueMinimo.id) {
-                            obj.valorSaqueMinimo.valor = multiRef[i].$t;
-                            break;
-                        }
+                        if(multiRef[i].id == obj.valorSaqueMaximo.id) obj.valorSaqueMaximo.valor = multiRef[i].$t;
+                        if(multiRef[i].id == obj.valorSaqueMinimo.id) obj.valorSaqueMinimo.valor = multiRef[i].$t;    
                     }
 
                     resolve(obj);
                     
                 } else {
-                    reject("Sem saldo")
+                    console.log("Erro ao pegar saldo", json)
+                    reject("Erro ao pegar saldo")
                 }
             })
         }); 
