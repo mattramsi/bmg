@@ -41,8 +41,18 @@ module.exports = {
 
             
                     for(var i = 0; i < multiRef.length; i++) {        
-                        if(multiRef[i].id == obj.valorSaqueMaximo.id) obj.valorSaqueMaximo.valor = multiRef[i].$t;
-                        if(multiRef[i].id == obj.valorSaqueMinimo.id) obj.valorSaqueMinimo.valor = multiRef[i].$t;    
+                        if(multiRef[i].id == obj.valorSaqueMaximo.id){
+                            obj.valorSaqueMaximo.valor = multiRef[i].$t;
+                            break;
+                        } 
+                    }
+
+
+                    for(var i = 0; i < multiRef.length; i++) {        
+                        if(multiRef[i].id == obj.valorSaqueMinimo.id) {
+                            obj.valorSaqueMinimo.valor = multiRef[i].$t;
+                            break;   
+                        }  
                     }
 
                     resolve(obj);
