@@ -50,16 +50,15 @@ var gerarRelatorio = function() {
                     array.push(e)
                 })
                 
-                // if(i == (csvData.length - 1) ){
-                    console.log(array)
-                    var xls = json2xls(array);
-                    fs.writeFileSync('Relatório.xlsx', xls, 'binary');
+                var xls = json2xls(array);
+                fs.writeFileSync('Relatório.xlsx', xls, 'binary');
 
+                if(i == (csvData.length - 1) ){
                     var horaFinal = new Date();
 
-                    // console.log("Início: ", horaInicial)
-                    // console.log("Fim:", horaFinal)
-                // } 
+                    console.log("Início: ", horaInicial)
+                    console.log("Fim:", horaFinal)
+                } 
             }
         })();
 
