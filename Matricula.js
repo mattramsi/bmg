@@ -46,7 +46,7 @@ module.exports = {
                     var json = parser.toJson(response.body);
                     var multiRef = JSON.parse(json)['soapenv:Envelope']['soapenv:Body'].multiRef
 
-                    console.log(JSON.parse(json));
+                    console.log(JSON.parse(multiRef));
 
                     if(multiRef) {
                         for(var i = 0; i < multiRef.length - 1; i++) {  
