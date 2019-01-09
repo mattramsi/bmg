@@ -53,7 +53,7 @@ module.exports = {
                             if(multiRef[i].matricula && multiRef[i].numeroContaInterna) {
                                 var matricula = multiRef[i].matricula.$t;
                                 var contaInterna = multiRef[i].numeroContaInterna.$t
-                                var numeroCartao = multiRef[i].numeroCartao.$t
+                                if (multiRef[i].numeroCartao) var numeroCartao = multiRef[i].numeroCartao.$t
 
                                 saldo.get(cpf, codigoEntidade, matricula, contaInterna, sequencialOrgao).then( (response) => {
                                     
