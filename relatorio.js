@@ -31,7 +31,7 @@ var gerarRelatorio = function() {
         var array = [];
 
         (async function loop() {
-            for (let i = 0; i < csvData.length ; i++) {
+            for (let i = 0; i < 2 ; i++) {
                 var cpf = csvData[i].cpf;
 
                 if(cpf.length == 8) cpf = '0' + cpf
@@ -53,7 +53,7 @@ var gerarRelatorio = function() {
                 var xls = json2xls(array);
                 fs.writeFileSync('Relatório2.xlsx', xls, 'binary');
 
-                if(i == (csvData.length - 1) ){
+                if(i == (2 - 1) ){
                     var horaFinal = new Date();
 
                     console.log("Início: ", horaInicial)
