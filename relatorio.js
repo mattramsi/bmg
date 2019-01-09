@@ -56,7 +56,7 @@ var gerarRelatorio = function() {
                 if(i == (2 - 1) ){
                     var horaFinal = new Date();
 
-                    cponsoel.log(array)
+                    console.log(array)
 
                     console.log("Início: ", horaInicial)
                     console.log("Fim:", horaFinal)
