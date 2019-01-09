@@ -51,7 +51,7 @@ var gerarRelatorio = function() {
                 })
                 
                 var xls = json2xls(array);
-                fs.writeFileSync('Relatório.xlsx', xls, 'binary');
+                fs.writeFileSync('Relatório2.xlsx', xls, 'binary');
 
                 if(i == (csvData.length - 1) ){
                     var horaFinal = new Date();
