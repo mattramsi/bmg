@@ -56,8 +56,6 @@ var gerarRelatorio = function() {
                 if(i == (csvData.length - 1) ){
                     var horaFinal = new Date();
 
-                    console.log(array)
-
                     console.log("Início: ", horaInicial)
                     console.log("Fim:", horaFinal)
                 } 
