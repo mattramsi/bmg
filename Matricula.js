@@ -34,6 +34,7 @@ module.exports = {
                     obj.cpf = cpf
                     obj.codigoEntidade = codigoEntidade
                     obj.matricula = "N/A";
+                    obj.numeroCartao = "N/A";
                     obj.contaInterna = "N/A";
                     obj.valorSaqueMaximo = "N/A";
                     obj.valorSaqueMinimo = "N/A";
@@ -54,6 +55,7 @@ module.exports = {
                             if(multiRef[i].matricula && multiRef[i].numeroContaInterna) {
                                 var matricula = multiRef[i].matricula.$t;
                                 var contaInterna = multiRef[i].numeroContaInterna.$t
+                                var numeroCartao = multiRef[i].numeroCartao.$t
 
                                 saldo.get(cpf, codigoEntidade, matricula, contaInterna, sequencialOrgao).then( (response) => {
                                     
@@ -61,6 +63,7 @@ module.exports = {
                                     obj.cpf = cpf
                                     obj.codigoEntidade = codigoEntidade
                                     obj.matricula = matricula;
+                                    obj.numeroCartao = numeroCartao
                                     obj.contaInterna = contaInterna
                                     obj.valorSaqueMaximo = response.valorSaqueMaximo.valor
                                     obj.valorSaqueMinimo = response.valorSaqueMinimo.valor
@@ -76,6 +79,7 @@ module.exports = {
                         obj.cpf = cpf
                         obj.codigoEntidade = codigoEntidade
                         obj.matricula = "N/A";
+                        obj.numeroCartao = "N/A";
                         obj.contaInterna = "N/A";
                         obj.valorSaqueMaximo = "N/A";
                         obj.valorSaqueMinimo = "N/A";
