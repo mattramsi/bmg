@@ -69,6 +69,17 @@ module.exports = {
                                     obj.erro = false
 
                                     resolve(obj)
+                                }, (err) => {
+
+                                    var obj = {};
+                                    obj.cpf = cpf
+                                    obj.codigoEntidade = codigoEntidade
+                                    obj.matricula = matricula;
+                                    obj.numeroCartao = numeroCartao
+                                    obj.contaInterna = contaInterna
+                                    var erroMsg = JSON.parse(json)['soapenv:Envelope']['soapenv:Body']["soapenv:Fault"].faultstring
+                                    obj.erro = erroMsg
+                                    reject(obj);
                                 })   
                             }
                         }
