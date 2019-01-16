@@ -27,7 +27,11 @@ module.exports = {
            request.post(url, opts, (err, response) => {
 
                 if(err) {
-                    reject("Erro ao pegar saldo")
+                    var obj = {};
+                    var erroMsg = JSON.parse(json)['soapenv:Envelope']['soapenv:Body']["soapenv:Fault"].faultstring
+                    obj.erro = erroMsg
+
+                    reject(obj)
                 } else {
                     var json = JSON.parse(parser.toJson(response.body));
 
@@ -61,8 +65,12 @@ module.exports = {
                         resolve(obj);
                         
                     } else {
-                        console.log("Erro ao pegar saldo", json)
-                        reject("Erro ao pegar saldo")
+
+                        var obj = {};
+                        var erroMsg = JSON.parse(json)['soapenv:Envelope']['soapenv:Body']["soapenv:Fault"].faultstring
+                        obj.erro = erroMsg
+
+                        reject(obj)
                     }
                 }
             })

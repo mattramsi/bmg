@@ -38,7 +38,8 @@ module.exports = {
                     obj.contaInterna = "N/A";
                     obj.valorSaqueMaximo = "N/A";
                     obj.valorSaqueMinimo = "N/A";
-                    obj.erro = "Erro ao pegar matrícula"
+                    var erroMsg = JSON.parse(json)['soapenv:Envelope']['soapenv:Body']["soapenv:Fault"].faultstring
+                    obj.erro = erroMsg
 
                     reject(obj)
 
@@ -81,9 +82,8 @@ module.exports = {
                         obj.contaInterna = "N/A";
                         obj.valorSaqueMaximo = "N/A";
                         obj.valorSaqueMinimo = "N/A";
-                        obj.erro = "Erro ao pegar Saldo"
-
                         var erroMsg = JSON.parse(json)['soapenv:Envelope']['soapenv:Body']["soapenv:Fault"].faultstring
+                        obj.erro = erroMsg
                         
                         console.log("erro", erroMsg)
 
